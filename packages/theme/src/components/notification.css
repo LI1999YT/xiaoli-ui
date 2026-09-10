@@ -1,0 +1,4 @@
+@layer dui.components {
+:where([data-dui='notification']){display:flex;flex-direction:column;gap:4px;min-width:240px;padding:12px 36px 12px 14px;position:relative;border-radius:var(--dui-radius-md);background:#fff;box-shadow:var(--dui-shadow-md);border:1px solid var(--dui-color-border-default)}
+:where([data-dui='notification'] button){position:absolute;top:8px;inset-inline-end:8px;border:0;background:transparent;cursor:pointer}
+}

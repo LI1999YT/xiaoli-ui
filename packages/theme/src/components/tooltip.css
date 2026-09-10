@@ -1,0 +1,41 @@
+@layer dui.components {
+  :where([data-dui='tooltip']) {
+    position: relative;
+    display: inline-flex;
+  }
+
+  :where([data-dui='tooltip'] [data-part='content']) {
+    position: absolute;
+    z-index: var(--dui-zIndex-popover);
+    max-width: 280px;
+    padding: 6px 10px;
+    border-radius: var(--dui-radius-md);
+    background: #2b1b33;
+    color: #fff;
+    font-size: var(--dui-font-size-sm);
+    line-height: 1.4;
+    pointer-events: none;
+    white-space: normal;
+  }
+
+  :where([data-dui='tooltip'][data-placement='top'] [data-part='content']) {
+    bottom: calc(100% + 8px);
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+  :where([data-dui='tooltip'][data-placement='bottom'] [data-part='content']) {
+    top: calc(100% + 8px);
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+  :where([data-dui='tooltip'][data-placement='start'] [data-part='content']) {
+    inset-inline-end: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  :where([data-dui='tooltip'][data-placement='end'] [data-part='content']) {
+    inset-inline-start: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

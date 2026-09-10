@@ -1,0 +1,68 @@
+@layer dui.components {
+  :where([data-dui='select']) {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 180px;
+    font-family: var(--dui-font-family);
+  }
+
+  :where([data-dui='select'] [data-part='trigger']) {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--dui-space-2);
+    min-height: max(var(--dui-select-height), 44px);
+    width: 100%;
+    padding-inline: var(--dui-space-4);
+    border: var(--dui-border-width) solid var(--dui-color-border-default);
+    border-radius: var(--dui-select-radius);
+    background: var(--dui-surface-panel);
+    color: var(--dui-color-text-primary);
+    font: inherit;
+    cursor: pointer;
+    box-shadow: 0 3px 0 rgb(255 208 228 / 0.8);
+  }
+
+  :where([data-dui='select'][data-invalid] [data-part='trigger']) {
+    border-color: var(--dui-color-danger-bg);
+    background: var(--dui-color-danger-soft);
+  }
+
+  :where([data-dui='select'] [data-part='listbox']) {
+    position: absolute;
+    z-index: var(--dui-zIndex-popover);
+    inset-inline: 0;
+    top: calc(100% + 6px);
+    margin: 0;
+    padding: var(--dui-space-1);
+    list-style: none;
+    border: var(--dui-border-width) solid var(--dui-color-border-default);
+    border-radius: var(--dui-select-radius);
+    background: var(--dui-surface-panel);
+    box-shadow: var(--dui-shadow-md);
+    max-height: 240px;
+    overflow: auto;
+  }
+
+  :where([data-dui='select'] [data-part='option']) {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding-inline: var(--dui-space-3);
+    border-radius: var(--dui-radius-sm);
+    cursor: pointer;
+  }
+
+  :where([data-dui='select'] [data-part='option']:hover),
+  :where([data-dui='select'] [data-part='option'][data-selected]) {
+    background: var(--dui-color-action-soft);
+    color: var(--dui-color-action-bg);
+  }
+
+  :where([data-dui='select'] [data-part='option'][data-disabled]) {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}

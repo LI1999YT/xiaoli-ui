@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='menu']){list-style:none;margin:0;padding:6px;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md);background:#fff;min-width:160px}
+:where([data-dui='menu'] li){min-height:36px;display:flex;align-items:center;padding:0 10px;border-radius:8px;cursor:pointer}
+:where([data-dui='menu'] li[data-active]),:where([data-dui='menu'] li:hover){background:var(--dui-color-action-soft);color:var(--dui-color-action-bg)}
+}

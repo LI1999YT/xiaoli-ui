@@ -1,0 +1,2 @@
+import { defineComponent, h } from 'vue';
+export const TreeSelect = defineComponent({ name: 'DuiTreeSelect', props: { options: { type: Array, default: () => [] }, modelValue: { type: String, default: '' } }, emits: { 'update:modelValue': (_v: string) => true }, setup(p, { emit }) { return () => h('select', { 'data-dui': 'tree-select', value: p.modelValue, onChange: (e: Event) => emit('update:modelValue', (e.target as HTMLSelectElement).value) }, [h('option', { value: '' }, '请选择'), ...(p.options as any[]).map((o) => h('option', { value: o.value }, o.label))]); } });

@@ -1,0 +1,61 @@
+@layer dui.components {
+  :where([data-dui='tabs']) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-tabs-gap);
+    min-width: 0;
+  }
+
+  :where([data-dui='tabs'][data-orientation='vertical']) { flex-direction: row; }
+
+  :where([data-dui='tabs'] [data-part='list']) {
+    display: flex;
+    gap: var(--dui-space-1);
+    border-bottom: var(--dui-border-width) solid var(--dui-color-border-default);
+  }
+
+  :where([data-dui='tabs'][data-orientation='vertical'] [data-part='list']) {
+    flex-direction: column;
+    border-bottom: 0;
+    border-inline-end: var(--dui-border-width) solid var(--dui-color-border-default);
+  }
+
+  :where([data-dui='tabs'] [data-part='tab']) {
+    appearance: none;
+    min-height: 40px;
+    padding: 8px 14px;
+    border: 0;
+    background: transparent;
+    color: var(--dui-color-text-secondary);
+    font: inherit;
+    cursor: pointer;
+    border-radius: var(--dui-radius-md) var(--dui-radius-md) 0 0;
+  }
+
+  :where([data-dui='tabs'][data-variant='pill'] [data-part='list']) {
+    border: 0;
+    padding: 4px;
+    background: var(--dui-surface-muted);
+    border-radius: var(--dui-radius-pill);
+  }
+
+  :where([data-dui='tabs'][data-variant='pill'] [data-part='tab']) {
+    border-radius: var(--dui-radius-pill);
+  }
+
+  :where([data-dui='tabs'] [data-part='tab'][data-active]) {
+    color: var(--dui-color-action-bg);
+    background: var(--dui-color-action-soft);
+    box-shadow: inset 0 -2px 0 var(--dui-color-action-bg);
+  }
+
+  :where([data-dui='tabs'][data-variant='pill'] [data-part='tab'][data-active]) {
+    box-shadow: none;
+    background: var(--dui-surface-panel);
+  }
+
+  :where([data-dui='tabs'] [data-part='panel']) {
+    min-width: 0;
+    padding-block: var(--dui-space-3);
+  }
+}

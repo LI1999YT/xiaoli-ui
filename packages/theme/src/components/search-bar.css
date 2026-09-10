@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='search-bar']){display:flex;gap:8px}
+:where([data-dui='search-bar'] input){flex:1;min-height:44px;padding:0 12px;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md);font:inherit}
+:where([data-dui='search-bar'] button){min-height:44px;padding:0 14px;border:0;border-radius:var(--dui-radius-md);background:var(--dui-color-action-bg);color:#fff;cursor:pointer}
+}

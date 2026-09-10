@@ -1,0 +1,4 @@
+@layer dui.components {
+:where([data-dui='watermark']){position:relative}
+:where([data-dui='watermark'])::after{content:var(--dui-watermark-text,'Xiaoli');position:absolute;inset:0;pointer-events:none;opacity:.12;display:grid;place-items:center;font-size:32px;transform:rotate(-18deg)}
+}

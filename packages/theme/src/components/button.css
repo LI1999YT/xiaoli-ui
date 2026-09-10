@@ -1,5 +1,8 @@
 @layer dui.components {
   :where([data-dui='button']) {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -10,35 +13,57 @@
     border: var(--dui-border-width) solid transparent;
     border-radius: var(--dui-button-radius);
     font: inherit;
+    font-family: var(--dui-font-family);
     font-weight: var(--dui-font-weight-medium);
+    letter-spacing: 0;
     line-height: 1.25;
     text-decoration: none;
     cursor: pointer;
     user-select: none;
-    max-width: 100%;
-    white-space: normal;
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+    overflow: visible;
+    white-space: nowrap;
+    transition:
+      background-color var(--dui-motion-duration-fast) var(--dui-motion-easing-standard),
+      border-color var(--dui-motion-duration-fast) var(--dui-motion-easing-standard),
+      color var(--dui-motion-duration-fast) var(--dui-motion-easing-standard),
+      box-shadow var(--dui-motion-duration-fast) var(--dui-motion-easing-standard),
+      transform 160ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  :where([data-dui='button'] [data-part='label']) {
+    display: inline-block;
+    flex: 0 0 auto;
+    overflow: visible;
+    white-space: nowrap;
   }
 
   :where([data-dui='button'][data-size='sm']) {
     --dui-button-height: var(--dui-control-height-sm);
+    min-width: auto;
     font-size: var(--dui-font-size-sm);
   }
 
   :where([data-dui='button'][data-size='md']) {
     --dui-button-height: var(--dui-control-height-md);
+    min-width: 96px;
     font-size: var(--dui-font-size-md);
   }
 
   :where([data-dui='button'][data-size='lg']) {
     --dui-button-height: var(--dui-control-height-lg);
+    min-width: 112px;
     font-size: var(--dui-font-size-lg);
   }
 
   :where([data-dui='button'][data-block]) {
     width: 100%;
+    max-width: 100%;
   }
 
-  :where([data-dui='button'][data-part='spinner']) {
+  :where([data-dui='button'] [data-part='spinner']) {
     width: 1em;
     height: 1em;
     border: 2px solid currentColor;
@@ -48,13 +73,19 @@
   }
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='primary']) {
-    background: var(--dui-button-primary-bg);
+    background: linear-gradient(135deg, #ff7ac6 0%, var(--dui-button-primary-bg) 48%, #7ad7ff 100%);
+    background-size: 180% 180%;
     color: var(--dui-button-primary-fg);
+    text-shadow: 0 1px 0 rgb(80 10 40 / 0.25);
+    box-shadow: 0 5px 0 color-mix(in srgb, var(--dui-color-action-pressed) 88%, #000), 0 10px 18px rgb(255 77 141 / 0.28);
+    animation: dui-anime-shift 5s ease-in-out infinite;
   }
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='neutral']) {
     background: var(--dui-surface-muted);
     color: var(--dui-color-text-primary);
+    border-color: var(--dui-color-border-default);
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--dui-color-border-default) 80%, #0000);
   }
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='success']) {
@@ -68,14 +99,16 @@
   }
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='danger']) {
-    background: var(--dui-color-danger-bg);
+    background: linear-gradient(135deg, #ff7a8a, var(--dui-color-danger-bg));
     color: var(--dui-color-danger-fg);
+    box-shadow: 0 5px 0 color-mix(in srgb, var(--dui-color-danger-bg) 80%, #000);
   }
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='outline']) {
-    background: transparent;
+    background: var(--dui-surface-panel);
     color: var(--dui-color-text-primary);
     border-color: var(--dui-button-border-color);
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--dui-color-border-default) 90%, transparent);
   }
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='soft'][data-color='primary']) {
@@ -90,20 +123,40 @@
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='ghost']) {
     background: transparent;
-    color: var(--dui-color-text-primary);
+    color: var(--dui-color-text-secondary);
   }
 
   :where([data-dui='button']:not([data-unstyled])[data-variant='link']) {
     background: transparent;
     color: var(--dui-color-link);
+    min-width: auto;
     min-height: auto;
     padding-inline: 0;
     border: 0;
+    box-shadow: none;
     text-decoration: underline;
+    text-underline-offset: 0.18em;
   }
 
-  :where([data-dui='button']:not([data-unstyled]):hover:not(:disabled)) {
-    filter: brightness(0.97);
+  :where([data-dui='button']:not([data-unstyled]):hover:not(:disabled):not([data-variant='link'])) {
+    transform: translateY(-3px) scale(1.03);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='primary']:hover:not(:disabled)) {
+    filter: brightness(1.05);
+  }
+
+  :where([data-dui='button']:not([data-unstyled]):active:not(:disabled):not([data-variant='link'])) {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--dui-color-action-pressed) 80%, #000);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='outline']:hover:not(:disabled)),
+  :where([data-dui='button']:not([data-unstyled])[data-variant='ghost']:hover:not(:disabled)),
+  :where([data-dui='button']:not([data-unstyled])[data-variant='soft']:hover:not(:disabled)),
+  :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='neutral']:hover:not(:disabled)) {
+    background: var(--dui-surface-hover);
+    color: var(--dui-color-text-primary);
   }
 
   :where([data-dui='button']:disabled) {
@@ -111,11 +164,25 @@
     color: var(--dui-color-text-disabled);
     background: var(--dui-surface-disabled);
     border-color: var(--dui-color-border-default);
+    box-shadow: none;
+    transform: none;
+    animation: none;
+    filter: none;
   }
 
   @keyframes dui-spin {
     to {
       transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dui-anime-shift {
+    0%,
+    100% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
     }
   }
 }

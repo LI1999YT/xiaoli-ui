@@ -1,0 +1,4 @@
+@layer dui.components {
+:where([data-dui='picker']){display:flex;gap:8px}
+:where([data-dui='picker'] select){min-height:44px;border-radius:12px;border:1px solid var(--dui-color-border-default);font:inherit}
+}

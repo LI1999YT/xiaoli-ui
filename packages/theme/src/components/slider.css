@@ -1,0 +1,7 @@
+@layer dui.components {
+:where([data-dui='slider']){display:flex;align-items:center;gap:12px;width:100%;position:relative}
+:where([data-dui='slider'] input[type='range']){position:absolute;inset:0;opacity:0;cursor:pointer}
+:where([data-dui='slider'] [data-part='track']){position:relative;flex:1;height:8px;border-radius:999px;background:var(--dui-surface-muted)}
+:where([data-dui='slider'] [data-part='fill']){position:absolute;inset-block:0;inset-inline-start:0;background:var(--dui-color-action-bg);border-radius:inherit}
+:where([data-dui='slider'] [data-part='thumb']){position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--dui-color-action-bg);transform:translate(-50%,-50%)}
+}

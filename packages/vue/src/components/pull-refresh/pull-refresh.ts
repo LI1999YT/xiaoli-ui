@@ -1,0 +1,2 @@
+import { defineComponent, h, ref } from 'vue';
+export const PullRefresh = defineComponent({ name: 'DuiPullRefresh', emits: { refresh: () => true }, setup(_, { emit, slots }) { const refreshing = ref(false); return () => h('div', { 'data-dui': 'pull-refresh' }, [h('button', { type: 'button', onClick: () => { refreshing.value = true; emit('refresh'); refreshing.value = false; } }, refreshing.value ? '刷新中…' : '下拉刷新'), slots.default?.()]); } });

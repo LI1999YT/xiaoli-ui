@@ -1,0 +1,3 @@
+@layer dui.components {
+:where([data-dui='infinite-scroll']){display:flex;flex-direction:column;gap:8px;align-items:center}
+}

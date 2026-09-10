@@ -1,0 +1,6 @@
+@layer dui.components {
+:where([data-dui='swipe-cell']){display:flex;overflow:hidden;border:1px solid var(--dui-color-border-default);border-radius:12px}
+:where([data-dui='swipe-cell'] [data-part='content']){flex:1;padding:12px;cursor:pointer}
+:where([data-dui='swipe-cell'] [data-part='actions']){display:flex}
+:where([data-dui='swipe-cell'] [data-part='actions'] button){min-width:72px;border:0;background:var(--dui-color-danger-bg);color:#fff;cursor:pointer}
+}

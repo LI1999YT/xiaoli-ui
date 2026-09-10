@@ -1,0 +1,43 @@
+@layer dui.components {
+  :where([data-dui='typography']) {
+    margin: 0;
+    min-width: 0;
+    font-family: var(--dui-font-family);
+    color: var(--dui-color-text-primary);
+    line-height: var(--dui-font-lineHeight-body);
+  }
+
+  :where([data-dui='typography'][data-variant='body']) { font-size: var(--dui-font-size-md); }
+  :where([data-dui='typography'][data-variant='heading']) {
+    font-size: var(--dui-font-size-headingMd);
+    font-weight: var(--dui-font-weight-medium);
+    line-height: var(--dui-font-lineHeight-heading);
+    color: var(--dui-color-action-bg);
+  }
+  :where([data-dui='typography'][data-variant='caption']) {
+    font-size: var(--dui-font-size-sm);
+    color: var(--dui-color-text-secondary);
+  }
+  :where([data-dui='typography'][data-variant='code']) {
+    font-family: var(--dui-font-familyMono);
+    font-size: 0.92em;
+    padding: 0.1em 0.4em;
+    border-radius: var(--dui-radius-sm);
+    background: var(--dui-color-action-soft);
+  }
+
+  :where([data-dui='typography'][data-tone='muted']) { color: var(--dui-color-text-muted); }
+  :where([data-dui='typography'][data-tone='danger']) { color: var(--dui-color-danger-bg); }
+  :where([data-dui='typography'][data-tone='success']) { color: var(--dui-color-success-bg); }
+
+  :where([data-dui='typography'][data-truncate]) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  :where(a[data-dui='typography']) {
+    color: var(--dui-color-link);
+    text-underline-offset: 0.18em;
+  }
+}

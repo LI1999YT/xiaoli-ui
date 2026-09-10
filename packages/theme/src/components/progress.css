@@ -1,0 +1,9 @@
+@layer dui.components {
+:where([data-dui='progress']){display:flex;align-items:center;gap:10px;width:100%}
+:where([data-dui='progress'] [data-part='track']){flex:1;height:var(--dui-progress-height);border-radius:var(--dui-radius-pill);background:var(--dui-progress-bg);overflow:hidden}
+:where([data-dui='progress'] [data-part='bar']){display:block;height:100%;background:var(--dui-progress-fill);border-radius:inherit}
+:where([data-dui='progress'][data-status='success'] [data-part='bar']){background:var(--dui-color-success-bg)}
+:where([data-dui='progress'][data-status='error'] [data-part='bar']){background:var(--dui-color-danger-bg)}
+:where([data-dui='progress'][data-indeterminate] [data-part='bar']){width:40%;animation:dui-progress 1s ease-in-out infinite}
+@keyframes dui-progress{0%{transform:translateX(-100%)}100%{transform:translateX(280%)}}
+}

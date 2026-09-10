@@ -1,6 +1,6 @@
 {
   "name": "@xiaoli-ui/tokens",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.1",
   "description": "Xiaoli UI design tokens, schema and theme utilities",
   "type": "module",
   "license": "MIT",

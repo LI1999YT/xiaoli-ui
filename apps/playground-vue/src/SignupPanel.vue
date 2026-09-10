@@ -29,7 +29,6 @@ const lightTheme = defineTheme({ id: 'demo-light', mode: 'light' });
 const darkTheme = defineTheme({
   id: 'demo-dark',
   mode: 'dark',
-  tokens: { 'color.action.bg': '#38bdf8' },
 });
 
 const mode = ref(props.startDark ? 'dark' : 'light');
@@ -51,15 +50,15 @@ function onSubmit(values: Record<string, unknown>) {
 <template>
   <ConfigProvider :theme="theme">
     <ToastViewport />
-    <Card :title="title">
+    <Card variant="outlined" :padding="5" :title="title">
       <template v-if="switchable" #extra>
-        <Button variant="ghost" size="sm" @click="mode = mode === 'light' ? 'dark' : 'light'">切换主题</Button>
+        <Button variant="outline" @click="mode = mode === 'light' ? 'dark' : 'light'">切换主题</Button>
       </template>
       <Form :default-values="{ name: '', agreed: false }" :validators="validators" :submit-handler="onSubmit">
         <FormField :name="['name']" v-slot="{ field }">
           <FormLabel>姓名</FormLabel>
           <FormControl>
-            <Input aria-label="姓名" clearable v-bind="field.inputProps" />
+            <Input aria-label="姓名" clearable v-bind="field.inputProps" placeholder="请输入姓名" />
           </FormControl>
           <FormError />
         </FormField>
@@ -69,7 +68,7 @@ function onSubmit(values: Record<string, unknown>) {
         </FormField>
         <FormActions>
           <Button html-type="submit">提交</Button>
-          <Button html-type="reset" variant="ghost" color="neutral">重置</Button>
+          <Button html-type="reset" variant="outline" color="neutral">重置</Button>
         </FormActions>
       </Form>
       <Dialog :open="open" title="确认提交" @update:open="open = $event">

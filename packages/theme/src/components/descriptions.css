@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='descriptions'] dl){display:grid;grid-template-columns:repeat(var(--dui-descriptions-columns,2),1fr);gap:12px;margin:0}
+:where([data-dui='descriptions'] dt){color:var(--dui-color-text-muted);font-size:13px}
+:where([data-dui='descriptions'] dd){margin:4px 0 0}
+}

@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='bottom-sheet']){position:fixed;inset:0;z-index:var(--dui-zIndex-modal)}
+:where([data-dui='bottom-sheet'] [data-part='backdrop']){position:absolute;inset:0;background:var(--dui-surface-overlay)}
+:where([data-dui='bottom-sheet'] [data-part='content']){position:absolute;inset-inline:0;bottom:0;padding:16px;border-radius:20px 20px 0 0;background:#fff}
+}

@@ -1,0 +1,19 @@
+@layer dui.components {
+  :where([data-dui='spinner']) {
+    display: inline-block;
+    box-sizing: border-box;
+    width: var(--dui-spinner-size);
+    height: var(--dui-spinner-size);
+    border: 3px solid color-mix(in srgb, var(--dui-spinner-color) 25%, transparent);
+    border-top-color: var(--dui-spinner-color);
+    border-radius: var(--dui-radius-pill);
+    animation: dui-spin 0.7s linear infinite;
+  }
+
+  :where([data-dui='spinner'][data-size='sm']) { width: 16px; height: 16px; border-width: 2px; }
+  :where([data-dui='spinner'][data-size='lg']) { width: 32px; height: 32px; }
+
+  @keyframes dui-spin {
+    to { transform: rotate(360deg); }
+  }
+}

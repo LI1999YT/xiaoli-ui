@@ -1,0 +1,7 @@
+@layer dui.components {
+:where([data-dui='action-sheet']){position:fixed;inset:0;z-index:var(--dui-zIndex-modal)}
+:where([data-dui='action-sheet'] [data-part='backdrop']){position:absolute;inset:0;background:var(--dui-surface-overlay)}
+:where([data-dui='action-sheet'] [data-part='content']){position:absolute;inset-inline:12px;bottom:12px;display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:16px;background:#fff}
+:where([data-dui='action-sheet'] button){min-height:44px;border:0;border-radius:12px;background:var(--dui-surface-muted);cursor:pointer}
+:where([data-dui='action-sheet'] [data-danger]){color:var(--dui-color-danger-bg)}
+}

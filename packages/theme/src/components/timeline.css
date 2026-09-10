@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='timeline']){list-style:none;margin:0;padding:0}
+:where([data-dui='timeline'] li){display:flex;gap:12px;padding-bottom:16px}
+:where([data-dui='timeline'] [data-part='dot']){width:10px;height:10px;margin-top:6px;border-radius:50%;background:var(--dui-color-action-bg);flex:0 0 auto}
+}

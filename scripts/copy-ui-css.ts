@@ -10,7 +10,7 @@ if (pkg !== 'react' && pkg !== 'vue') {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const themeDist = path.join(root, 'packages/theme/dist');
 const dest = path.join(root, 'packages', pkg, 'dist');
-const components = ['button', 'icon', 'flex', 'input', 'checkbox', 'form', 'dialog', 'toast', 'card'];
+const components = ['button', 'icon', 'flex', 'input', 'checkbox', 'form', 'dialog', 'toast', 'card', 'typography', 'grid', 'space', 'divider', 'textarea', 'radio', 'switch', 'select', 'drawer', 'popover', 'tooltip', 'tabs', 'badge', 'spinner', 'skeleton', 'empty', 'alert', 'tag', 'avatar', 'image', 'progress', 'pagination', 'breadcrumb', 'menu', 'dropdown', 'accordion', 'input-number', 'slider', 'rate', 'upload', 'date-picker', 'time-picker', 'table', 'list', 'descriptions', 'steps', 'bottom-sheet', 'tab-bar', 'action-sheet', 'safe-area', 'segmented', 'autocomplete', 'calendar', 'notification', 'tree', 'tree-select', 'cascader', 'transfer', 'carousel', 'timeline', 'anchor', 'affix', 'scroll-area', 'back-top', 'pull-refresh', 'infinite-scroll', 'swipe-cell', 'notice-bar', 'virtual-list', 'search-bar', 'picker', 'watermark'];
 
 await mkdir(dest, { recursive: true });
 await cp(path.join(themeDist, 'style.css'), path.join(dest, 'style.css'));

@@ -1,0 +1,7 @@
+@layer dui.components {
+:where([data-dui='autocomplete']){position:relative}
+:where([data-dui='autocomplete'] input){width:100%;min-height:44px;padding:0 12px;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md);font:inherit}
+:where([data-dui='autocomplete'] ul){position:absolute;inset-inline:0;top:calc(100% + 4px);margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--dui-color-border-default);border-radius:12px;z-index:10}
+:where([data-dui='autocomplete'] li){min-height:36px;display:flex;align-items:center;padding:0 10px;cursor:pointer}
+:where([data-dui='autocomplete'] li:hover){background:var(--dui-color-action-soft)}
+}

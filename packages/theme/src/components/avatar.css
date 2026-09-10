@@ -1,0 +1,9 @@
+@layer dui.components {
+:where([data-dui='avatar']){display:inline-grid;place-items:center;width:40px;height:40px;border-radius:var(--dui-radius-pill);background:linear-gradient(135deg,#ff7ac6,#7ad7ff);color:#fff;overflow:hidden}
+:where([data-dui='avatar'][data-size='sm']){width:28px;height:28px;font-size:12px}
+:where([data-dui='avatar'][data-size='lg']){width:56px;height:56px}
+:where([data-dui='avatar'][data-shape='square']){border-radius:var(--dui-radius-md)}
+:where([data-dui='avatar'] img){width:100%;height:100%;object-fit:cover}
+:where([data-dui='avatar-group']){display:inline-flex}
+:where([data-dui='avatar-group'] [data-dui='avatar']){margin-inline-start:-8px;box-shadow:0 0 0 2px #fff}
+}

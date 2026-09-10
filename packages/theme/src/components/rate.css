@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='rate']){display:inline-flex;gap:4px}
+:where([data-dui='rate'] button){border:0;background:transparent;font-size:22px;color:#ffd0e4;cursor:pointer}
+:where([data-dui='rate'] button[data-active]){color:#ff4d8d}
+}

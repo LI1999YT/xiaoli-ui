@@ -1,7 +1,7 @@
 @layer dui.components {
   :where([data-dui='toast-viewport']) {
     position: fixed;
-    z-index: var(--dui-z-index-notification);
+    z-index: var(--dui-zIndex-notification);
     display: flex;
     flex-direction: column;
     gap: var(--dui-toast-gap);
@@ -37,28 +37,51 @@
     color: var(--dui-toast-color);
     border-radius: var(--dui-toast-radius);
     box-shadow: var(--dui-toast-shadow);
-    padding: var(--dui-space-3);
+    padding: var(--dui-space-4);
     border: var(--dui-border-width) solid var(--dui-color-border-default);
+    animation: dui-toast-in 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   :where([data-dui='toast'][data-status='success']) {
-    border-color: var(--dui-color-success-bg);
+    background: var(--dui-color-success-soft);
+    border-color: color-mix(in srgb, var(--dui-color-success-bg) 45%, transparent);
+    color: var(--dui-color-success-bg);
   }
 
   :where([data-dui='toast'][data-status='error']) {
-    border-color: var(--dui-color-danger-bg);
+    background: var(--dui-color-danger-soft);
+    border-color: color-mix(in srgb, var(--dui-color-danger-bg) 45%, transparent);
+    color: var(--dui-color-danger-bg);
   }
 
   :where([data-dui='toast'][data-status='warning']) {
-    border-color: var(--dui-color-warning-bg);
+    background: var(--dui-color-warning-soft);
+    border-color: color-mix(in srgb, var(--dui-color-warning-bg) 45%, transparent);
+    color: var(--dui-color-warning-bg);
   }
 
   :where([data-dui='toast'] [data-part='closeButton']) {
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 36px;
+    min-height: 36px;
     border: 0;
+    border-radius: var(--dui-radius-sm);
     background: transparent;
     cursor: pointer;
     color: inherit;
+  }
+
+  @keyframes dui-toast-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-16px) scale(0.86) rotate(-2deg);
+    }
+    70% {
+      opacity: 1;
+      transform: translateY(3px) scale(1.04) rotate(1deg);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
   }
 }

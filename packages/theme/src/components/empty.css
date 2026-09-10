@@ -1,0 +1,27 @@
+@layer dui.components {
+  :where([data-dui='empty']) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dui-space-2);
+    padding: var(--dui-space-8);
+    text-align: center;
+    color: var(--dui-color-text-secondary);
+  }
+
+  :where([data-dui='empty'][data-size='compact']) { padding: var(--dui-space-4); }
+
+  :where([data-dui='empty'] [data-part='illustration']) {
+    font-size: 40px;
+    line-height: 1;
+    color: var(--dui-color-action-bg);
+  }
+
+  :where([data-dui='empty'] [data-part='title']) {
+    font-size: var(--dui-font-size-lg);
+    color: var(--dui-color-text-primary);
+  }
+
+  :where([data-dui='empty'] [data-part='action']) { margin-top: var(--dui-space-2); }
+}
