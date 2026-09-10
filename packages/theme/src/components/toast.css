@@ -1,0 +1,64 @@
+@layer dui.components {
+  :where([data-dui='toast-viewport']) {
+    position: fixed;
+    z-index: var(--dui-z-index-notification);
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-toast-gap);
+    max-width: min(var(--dui-toast-max-width), calc(100vw - 24px));
+    pointer-events: none;
+    padding: var(--dui-toast-offset);
+    padding-top: max(var(--dui-toast-offset), env(safe-area-inset-top));
+    padding-bottom: max(var(--dui-toast-offset), env(safe-area-inset-bottom));
+  }
+
+  :where([data-dui='toast-viewport'][data-placement='top-end']) {
+    top: 0;
+    inset-inline-end: 0;
+  }
+
+  :where([data-dui='toast-viewport'][data-placement='top']) {
+    top: 0;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+
+  :where([data-dui='toast-viewport'][data-placement='bottom-end']) {
+    bottom: 0;
+    inset-inline-end: 0;
+  }
+
+  :where([data-dui='toast'][data-part='toast']) {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--dui-toast-gap);
+    background: var(--dui-toast-bg);
+    color: var(--dui-toast-color);
+    border-radius: var(--dui-toast-radius);
+    box-shadow: var(--dui-toast-shadow);
+    padding: var(--dui-space-3);
+    border: var(--dui-border-width) solid var(--dui-color-border-default);
+  }
+
+  :where([data-dui='toast'][data-status='success']) {
+    border-color: var(--dui-color-success-bg);
+  }
+
+  :where([data-dui='toast'][data-status='error']) {
+    border-color: var(--dui-color-danger-bg);
+  }
+
+  :where([data-dui='toast'][data-status='warning']) {
+    border-color: var(--dui-color-warning-bg);
+  }
+
+  :where([data-dui='toast'] [data-part='closeButton']) {
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: inherit;
+  }
+}

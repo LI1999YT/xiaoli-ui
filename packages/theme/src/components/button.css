@@ -1,0 +1,121 @@
+@layer dui.components {
+  :where([data-dui='button']) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dui-button-gap);
+    box-sizing: border-box;
+    min-height: max(var(--dui-button-height), 44px);
+    padding-inline: var(--dui-button-padding-inline);
+    border: var(--dui-border-width) solid transparent;
+    border-radius: var(--dui-button-radius);
+    font: inherit;
+    font-weight: var(--dui-font-weight-medium);
+    line-height: 1.25;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  :where([data-dui='button'][data-size='sm']) {
+    --dui-button-height: var(--dui-control-height-sm);
+    font-size: var(--dui-font-size-sm);
+  }
+
+  :where([data-dui='button'][data-size='md']) {
+    --dui-button-height: var(--dui-control-height-md);
+    font-size: var(--dui-font-size-md);
+  }
+
+  :where([data-dui='button'][data-size='lg']) {
+    --dui-button-height: var(--dui-control-height-lg);
+    font-size: var(--dui-font-size-lg);
+  }
+
+  :where([data-dui='button'][data-block]) {
+    width: 100%;
+  }
+
+  :where([data-dui='button'][data-part='spinner']) {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: var(--dui-radius-pill);
+    animation: dui-spin var(--dui-motion-duration-slow) linear infinite;
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='primary']) {
+    background: var(--dui-button-primary-bg);
+    color: var(--dui-button-primary-fg);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='neutral']) {
+    background: var(--dui-surface-muted);
+    color: var(--dui-color-text-primary);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='success']) {
+    background: var(--dui-color-success-bg);
+    color: var(--dui-color-success-fg);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='warning']) {
+    background: var(--dui-color-warning-bg);
+    color: var(--dui-color-warning-fg);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='solid'][data-color='danger']) {
+    background: var(--dui-color-danger-bg);
+    color: var(--dui-color-danger-fg);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='outline']) {
+    background: transparent;
+    color: var(--dui-color-text-primary);
+    border-color: var(--dui-button-border-color);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='soft'][data-color='primary']) {
+    background: var(--dui-color-action-soft);
+    color: var(--dui-color-action-bg);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='soft'][data-color='danger']) {
+    background: var(--dui-color-danger-soft);
+    color: var(--dui-color-danger-bg);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='ghost']) {
+    background: transparent;
+    color: var(--dui-color-text-primary);
+  }
+
+  :where([data-dui='button']:not([data-unstyled])[data-variant='link']) {
+    background: transparent;
+    color: var(--dui-color-link);
+    min-height: auto;
+    padding-inline: 0;
+    border: 0;
+    text-decoration: underline;
+  }
+
+  :where([data-dui='button']:not([data-unstyled]):hover:not(:disabled)) {
+    filter: brightness(0.97);
+  }
+
+  :where([data-dui='button']:disabled) {
+    cursor: not-allowed;
+    color: var(--dui-color-text-disabled);
+    background: var(--dui-surface-disabled);
+    border-color: var(--dui-color-border-default);
+  }
+
+  @keyframes dui-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

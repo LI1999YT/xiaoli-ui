@@ -1,0 +1,38 @@
+@layer dui.components {
+  :where([data-dui='form']) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-space-4);
+    min-width: 0;
+  }
+
+  :where([data-dui='form'] [data-part='field']) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-form-field-gap);
+    min-width: 0;
+  }
+
+  :where([data-dui='form'] [data-part='label']) {
+    color: var(--dui-form-label-color);
+    font-size: var(--dui-form-label-font-size);
+    font-weight: var(--dui-font-weight-medium);
+  }
+
+  :where([data-dui='form'] [data-part='error']) {
+    color: var(--dui-form-error-color);
+    font-size: var(--dui-font-size-sm);
+    margin-block-start: var(--dui-form-error-gap);
+  }
+
+  :where([data-dui='form'] [data-part='description']) {
+    color: var(--dui-color-text-muted);
+    font-size: var(--dui-font-size-sm);
+  }
+
+  :where([data-dui='form'] [data-part='actions']) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dui-form-actions-gap);
+  }
+}

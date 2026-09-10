@@ -1,0 +1,68 @@
+@layer dui.components {
+  :where([data-dui='dialog'][data-part='backdrop']) {
+    position: fixed;
+    inset: 0;
+    background: var(--dui-dialog-backdrop-bg);
+    z-index: var(--dui-z-index-modal);
+  }
+
+  :where([data-dui='dialog'][data-part='positioner']) {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--dui-space-4);
+    padding-bottom: max(var(--dui-space-4), env(safe-area-inset-bottom));
+    z-index: calc(var(--dui-z-index-modal) + 1);
+  }
+
+  :where([data-dui='dialog'][data-part='content']) {
+    width: var(--dui-dialog-width);
+    max-height: var(--dui-dialog-max-height);
+    overflow: auto;
+    background: var(--dui-dialog-bg);
+    color: var(--dui-color-text-primary);
+    border-radius: var(--dui-dialog-radius);
+    box-shadow: var(--dui-dialog-shadow);
+    padding: var(--dui-dialog-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-dialog-header-gap);
+  }
+
+  :where([data-dui='dialog'][data-part='header']) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--dui-space-3);
+  }
+
+  :where([data-dui='dialog'][data-part='title']) {
+    margin: 0;
+    font-size: var(--dui-font-size-headingSm);
+    line-height: var(--dui-font-lineHeight-heading);
+  }
+
+  :where([data-dui='dialog'][data-part='footer']) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--dui-space-2);
+  }
+
+  :where([data-dui='dialog'][data-part='closeButton']) {
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  @media (max-width: 479px) {
+    :where([data-dui='dialog'][data-part='footer']) {
+      flex-direction: column-reverse;
+    }
+  }
+}

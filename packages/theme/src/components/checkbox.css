@@ -1,0 +1,48 @@
+@layer dui.components {
+  :where([data-dui='checkbox']) {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--dui-checkbox-gap);
+    min-height: 44px;
+    cursor: pointer;
+    color: var(--dui-color-text-primary);
+  }
+
+  :where([data-dui='checkbox'] [data-part='input']) {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+  }
+
+  :where([data-dui='checkbox'] [data-part='control']) {
+    width: var(--dui-checkbox-control-size);
+    height: var(--dui-checkbox-control-size);
+    border: var(--dui-border-width) solid var(--dui-checkbox-border-color);
+    border-radius: var(--dui-checkbox-radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dui-surface-panel);
+    flex: 0 0 auto;
+  }
+
+  :where([data-dui='checkbox'][data-state='checked']:not([data-unstyled]) [data-part='control']),
+  :where([data-dui='checkbox'][data-state='indeterminate']:not([data-unstyled]) [data-part='control']) {
+    background: var(--dui-checkbox-checked-bg);
+    border-color: var(--dui-checkbox-checked-bg);
+    color: var(--dui-color-action-fg);
+  }
+
+  :where([data-dui='checkbox'][data-disabled]) {
+    color: var(--dui-color-text-disabled);
+    cursor: not-allowed;
+  }
+
+  :where([data-dui='checkbox-group']) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-space-1);
+  }
+}

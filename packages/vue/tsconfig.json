@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "noEmit": true,
+    "paths": {
+      "@xiaoli-ui/tokens": ["../tokens/src/index.ts"],
+      "@xiaoli-ui/theme": ["../theme/src/index.ts"],
+      "@xiaoli-ui/internal-core": ["../internal-core/src/index.ts"],
+      "@xiaoli-ui/internal-dom": ["../internal-dom/src/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts"]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@xiaoli-ui/tokens",
+  "version": "0.1.0",
+  "description": "Xiaoli UI design tokens, schema and theme utilities",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.json --emitDeclarationOnly"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": ["design-tokens", "theme", "css-variables", "xiaoli-ui"],
+  "homepage": "https://github.com/LI1999YT/xiaoli-ui/tree/main/packages/tokens",
+  "bugs": {
+    "url": "https://github.com/LI1999YT/xiaoli-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LI1999YT/xiaoli-ui.git",
+    "directory": "packages/tokens"
+  }
+}

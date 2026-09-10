@@ -1,0 +1,64 @@
+{
+  "name": "xiaoli-ui",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Xiaoli UI — React + Vue 双框架 Web 组件库（M1 试点）",
+  "license": "MIT",
+  "homepage": "https://github.com/LI1999YT/xiaoli-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LI1999YT/xiaoli-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LI1999YT/xiaoli-ui/issues"
+  },
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "tokens:generate": "tsx scripts/generate-tokens.ts",
+    "dev:react": "pnpm --filter @xiaoli-ui/playground-react dev",
+    "dev:vue": "pnpm --filter @xiaoli-ui/playground-vue dev",
+    "docs:dev": "echo \"文档门户尚未建立，请先使用 playground：pnpm dev:react / pnpm dev:vue\" && exit 0",
+    "lint": "eslint .",
+    "typecheck": "pnpm tokens:generate && pnpm --filter @xiaoli-ui/tokens exec tsc -p tsconfig.json --noEmit && pnpm --filter @xiaoli-ui/react typecheck && pnpm --filter @xiaoli-ui/vue typecheck",
+    "test:unit": "vitest run",
+    "test:contract": "vitest run --config vitest.contract.config.ts",
+    "test:e2e": "echo \"Playwright e2e 尚未接入（not-run）\" && exit 0",
+    "test:a11y": "echo \"axe 自动化尚未接入（not-run）\" && exit 0",
+    "build": "pnpm tokens:generate && pnpm --filter @xiaoli-ui/tokens build && pnpm --filter @xiaoli-ui/theme build && pnpm --filter @xiaoli-ui/react build && pnpm --filter @xiaoli-ui/vue build",
+    "pack:check": "tsx scripts/pack-check.ts",
+    "test:consumers": "tsx scripts/test-consumers.ts",
+    "size:check": "echo \"体积预算检查将在稳定范围扩大后启用（not-run）\" && exit 0",
+    "release:verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:contract && pnpm build && pnpm pack:check",
+    "release:publish": "echo \"禁止擅自发布。请所有者按 docs/19 授权后再执行。\" && exit 1"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.6",
+    "@eslint/js": "^9.35.0",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/vue": "^8.1.0",
+    "@types/node": "^24.3.1",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "eslint": "^9.35.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.42.0",
+    "vite": "^7.1.5",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.21",
+    "vue-tsc": "^3.0.6"
+  }
+}

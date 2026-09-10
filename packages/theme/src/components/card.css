@@ -1,0 +1,65 @@
+@layer dui.components {
+  :where([data-dui='card']) {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--dui-card-bg);
+    color: var(--dui-color-text-primary);
+    border-radius: var(--dui-card-radius);
+    padding: var(--dui-card-padding);
+  }
+
+  :where([data-dui='card']:not([data-unstyled])[data-variant='outlined']) {
+    border: var(--dui-border-width) solid var(--dui-card-border-color);
+  }
+
+  :where([data-dui='card']:not([data-unstyled])[data-variant='elevated']) {
+    box-shadow: var(--dui-card-shadow);
+    border: var(--dui-border-width) solid transparent;
+  }
+
+  :where([data-dui='card']:not([data-unstyled])[data-variant='plain']) {
+    background: transparent;
+  }
+
+  :where([data-dui='card'][data-hoverable]:not([data-unstyled]):hover) {
+    background: var(--dui-surface-hover);
+  }
+
+  :where([data-dui='card'] [data-part='header']) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--dui-card-header-gap);
+    margin-bottom: var(--dui-space-3);
+  }
+
+  :where([data-dui='card'] [data-part='title']) {
+    margin: 0;
+    font-size: var(--dui-font-size-headingSm);
+    line-height: var(--dui-font-lineHeight-heading);
+    overflow-wrap: anywhere;
+  }
+
+  :where([data-dui='card'] [data-part='cover']) {
+    margin: calc(var(--dui-card-padding) * -1);
+    margin-bottom: var(--dui-space-3);
+    overflow: hidden;
+    border-start-start-radius: inherit;
+    border-start-end-radius: inherit;
+  }
+
+  :where([data-dui='card'] [data-part='cover'] img) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  :where([data-dui='card'] [data-part='footer']) {
+    margin-top: var(--dui-space-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dui-space-2);
+  }
+}

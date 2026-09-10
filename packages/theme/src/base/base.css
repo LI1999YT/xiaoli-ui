@@ -1,0 +1,52 @@
+@layer dui.reset, dui.tokens, dui.base, dui.components;
+
+@layer dui.base {
+  :where([data-dui-theme]) {
+    color: var(--dui-color-text-primary);
+    font-family: var(--dui-font-family);
+    font-size: var(--dui-font-size-md);
+    line-height: var(--dui-font-lineHeight-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :where([data-dui-theme][data-density='compact']) {
+    --dui-control-height-sm: 28px;
+    --dui-control-height-md: 32px;
+    --dui-control-height-lg: 40px;
+  }
+
+  :where(.dui-visually-hidden) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  :where([data-dui]:focus-visible) {
+    outline: var(--dui-focus-width) solid var(--dui-color-focus);
+    outline-offset: var(--dui-focus-offset);
+  }
+
+  :where([data-dui-portal-host]) {
+    position: relative;
+    z-index: var(--dui-z-index-modal);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where([data-dui-theme][data-motion='system']) :where([data-dui]) {
+      animation-duration: 0.01ms;
+      transition-duration: 0.01ms;
+    }
+  }
+
+  :where([data-dui-theme][data-motion='none']) :where([data-dui]),
+  :where([data-dui-theme][data-motion='reduced']) :where([data-dui]) {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
+  }
+}

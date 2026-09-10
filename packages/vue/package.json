@@ -1,0 +1,99 @@
+{
+  "name": "@xiaoli-ui/vue",
+  "version": "0.1.0",
+  "description": "Xiaoli UI Vue 3 components for the web",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": ["**/*.css"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./config-provider": {
+      "types": "./dist/config-provider/index.d.ts",
+      "import": "./dist/config-provider/index.js"
+    },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "import": "./dist/button/index.js"
+    },
+    "./icon": {
+      "types": "./dist/icon/index.d.ts",
+      "import": "./dist/icon/index.js"
+    },
+    "./flex": {
+      "types": "./dist/flex/index.d.ts",
+      "import": "./dist/flex/index.js"
+    },
+    "./input": {
+      "types": "./dist/input/index.d.ts",
+      "import": "./dist/input/index.js"
+    },
+    "./checkbox": {
+      "types": "./dist/checkbox/index.d.ts",
+      "import": "./dist/checkbox/index.js"
+    },
+    "./form": {
+      "types": "./dist/form/index.d.ts",
+      "import": "./dist/form/index.js"
+    },
+    "./dialog": {
+      "types": "./dist/dialog/index.d.ts",
+      "import": "./dist/dialog/index.js"
+    },
+    "./toast": {
+      "types": "./dist/toast/index.d.ts",
+      "import": "./dist/toast/index.js"
+    },
+    "./card": {
+      "types": "./dist/card/index.d.ts",
+      "import": "./dist/card/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./base.css": "./dist/base.css",
+    "./button/style.css": "./dist/button/style.css",
+    "./icon/style.css": "./dist/icon/style.css",
+    "./flex/style.css": "./dist/flex/style.css",
+    "./input/style.css": "./dist/input/style.css",
+    "./checkbox/style.css": "./dist/checkbox/style.css",
+    "./form/style.css": "./dist/form/style.css",
+    "./dialog/style.css": "./dist/dialog/style.css",
+    "./toast/style.css": "./dist/toast/style.css",
+    "./card/style.css": "./dist/card/style.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build && tsx ../../scripts/copy-ui-css.ts vue",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@xiaoli-ui/theme": "workspace:*",
+    "@xiaoli-ui/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@xiaoli-ui/internal-core": "workspace:*",
+    "@xiaoli-ui/internal-dom": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": ["vue", "components", "ui", "design-system", "xiaoli-ui"],
+  "homepage": "https://github.com/LI1999YT/xiaoli-ui/tree/main/packages/vue",
+  "bugs": {
+    "url": "https://github.com/LI1999YT/xiaoli-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LI1999YT/xiaoli-ui.git",
+    "directory": "packages/vue"
+  }
+}

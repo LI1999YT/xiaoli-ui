@@ -1,0 +1,53 @@
+@layer dui.components {
+  :where([data-dui='input']) {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: max(var(--dui-input-height), 44px);
+    border: var(--dui-border-width) solid var(--dui-input-border-color);
+    border-radius: var(--dui-input-radius);
+    background: var(--dui-input-bg);
+    color: var(--dui-input-text-color);
+    padding-inline: var(--dui-input-padding-inline);
+    gap: var(--dui-space-2);
+  }
+
+  :where([data-dui='input'][data-size='sm']) { --dui-input-height: var(--dui-control-height-sm); }
+  :where([data-dui='input'][data-size='lg']) { --dui-input-height: var(--dui-control-height-lg); }
+
+  :where([data-dui='input'][data-part='input']) {
+    flex: 1 1 auto;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+  }
+
+  :where([data-dui='input'][data-invalid]:not([data-unstyled])) {
+    border-color: var(--dui-color-danger-bg);
+  }
+
+  :where([data-dui='input']:focus-within:not([data-unstyled])) {
+    border-color: var(--dui-input-focus-ring);
+    box-shadow: 0 0 0 var(--dui-focus-width) color-mix(in srgb, var(--dui-input-focus-ring) 25%, transparent);
+  }
+
+  :where([data-dui='input'][data-disabled]) {
+    background: var(--dui-surface-disabled);
+    color: var(--dui-color-text-disabled);
+  }
+
+  :where([data-dui='input'] [data-part='clearButton']) {
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    color: var(--dui-color-text-muted);
+    cursor: pointer;
+  }
+}

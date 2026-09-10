@@ -1,0 +1,49 @@
+@layer dui.components {
+  :where([data-dui='flex']) {
+    display: flex;
+    min-width: 0;
+    gap: var(--dui-flex-gap);
+    row-gap: var(--dui-flex-row-gap, var(--dui-flex-gap));
+    column-gap: var(--dui-flex-column-gap, var(--dui-flex-gap));
+  }
+
+  :where([data-dui='flex'][data-wrap]) {
+    flex-wrap: wrap;
+  }
+
+  :where([data-dui='flex'][data-align='start']) { align-items: flex-start; }
+  :where([data-dui='flex'][data-align='center']) { align-items: center; }
+  :where([data-dui='flex'][data-align='end']) { align-items: flex-end; }
+  :where([data-dui='flex'][data-align='stretch']) { align-items: stretch; }
+  :where([data-dui='flex'][data-align='baseline']) { align-items: baseline; }
+
+  :where([data-dui='flex'][data-justify='start']) { justify-content: flex-start; }
+  :where([data-dui='flex'][data-justify='center']) { justify-content: center; }
+  :where([data-dui='flex'][data-justify='end']) { justify-content: flex-end; }
+  :where([data-dui='flex'][data-justify='between']) { justify-content: space-between; }
+  :where([data-dui='flex'][data-justify='around']) { justify-content: space-around; }
+
+  :where([data-dui='flex'][data-direction-base='row']) { flex-direction: row; }
+  :where([data-dui='flex'][data-direction-base='column']) { flex-direction: column; }
+
+  @media (min-width: 480px) {
+    :where([data-dui='flex'][data-direction-sm='row']) { flex-direction: row; }
+    :where([data-dui='flex'][data-direction-sm='column']) { flex-direction: column; }
+  }
+  @media (min-width: 768px) {
+    :where([data-dui='flex'][data-direction-md='row']) { flex-direction: row; }
+    :where([data-dui='flex'][data-direction-md='column']) { flex-direction: column; }
+  }
+  @media (min-width: 1024px) {
+    :where([data-dui='flex'][data-direction-lg='row']) { flex-direction: row; }
+    :where([data-dui='flex'][data-direction-lg='column']) { flex-direction: column; }
+  }
+  @media (min-width: 1280px) {
+    :where([data-dui='flex'][data-direction-xl='row']) { flex-direction: row; }
+    :where([data-dui='flex'][data-direction-xl='column']) { flex-direction: column; }
+  }
+  @media (min-width: 1536px) {
+    :where([data-dui='flex'][data-direction-2xl='row']) { flex-direction: row; }
+    :where([data-dui='flex'][data-direction-2xl='column']) { flex-direction: column; }
+  }
+}
