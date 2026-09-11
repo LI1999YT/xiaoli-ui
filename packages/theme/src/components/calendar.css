@@ -1,6 +1,60 @@
 @layer dui.components {
-:where([data-dui='calendar'] [data-part='grid']){display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-:where([data-dui='calendar'] button){min-height:36px;border:0;border-radius:10px;background:transparent;cursor:pointer}
-:where([data-dui='calendar'] button[data-selected]){background:var(--dui-color-action-bg);color:#fff}
-:where([data-dui='calendar'] [data-part='weekday']){text-align:center;color:var(--dui-color-text-muted);font-size:12px}
+  :where([data-dui='calendar']) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 240px;
+  }
+
+  :where([data-dui='calendar'] [data-part='header']) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  :where([data-dui='calendar'] [data-part='header'] button) {
+    min-width: 36px;
+    min-height: 36px;
+    border: 0;
+    border-radius: var(--dui-radius-md);
+    background: var(--dui-surface-muted);
+    cursor: pointer;
+  }
+
+  :where([data-dui='calendar'] [data-part='grid']) {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  :where([data-dui='calendar'] [data-part='day']) {
+    min-height: var(--dui-calendar-cell-size);
+    min-width: var(--dui-calendar-cell-size);
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  :where([data-dui='calendar'] [data-part='day'][data-selected]) {
+    background: var(--dui-calendar-selected-bg);
+    color: var(--dui-color-action-fg);
+  }
+
+  :where([data-dui='calendar'] [data-part='day'][data-today]:not([data-selected])) {
+    box-shadow: inset 0 0 0 1px var(--dui-calendar-today-border);
+  }
+
+  :where([data-dui='calendar'] [data-part='day'][data-disabled]) {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  :where([data-dui='calendar'] [data-part='weekday']) {
+    text-align: center;
+    color: var(--dui-color-text-muted);
+    font-size: 12px;
+  }
 }

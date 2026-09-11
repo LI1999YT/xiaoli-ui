@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   Accordion,
   ActionSheet,
+  Affix,
   Alert,
   Autocomplete,
   Avatar,
@@ -32,9 +33,12 @@ import {
   Picker,
   Popover,
   Progress,
+  PullRefresh,
   Radio,
   RadioGroup,
   Rate,
+  SafeArea,
+  ScrollArea,
   SearchBar,
   Segmented,
   Select,
@@ -71,6 +75,16 @@ export function Gallery() {
   const [volume, setVolume] = useState(40);
   const [tab, setTab] = useState('form');
   const [seg, setSeg] = useState('week');
+  const [tablePage, setTablePage] = useState(1);
+  const [refreshCount, setRefreshCount] = useState(0);
+
+  const tableRows = [
+    { id: '1', name: '小狸', city: '京都', score: 92 },
+    { id: '2', name: '星屑', city: '东京', score: 88 },
+    { id: '3', name: '月光', city: '大阪', score: 95 },
+    { id: '4', name: '樱花', city: '京都', score: 81 },
+    { id: '5', name: '夜行', city: '奈良', score: 76 },
+  ];
 
   return (
     <>
@@ -147,7 +161,20 @@ export function Gallery() {
         <Menu items={[{ value: 'a', label: '概览' }, { value: 'b', label: '设置' }]} defaultValue="a" />
         <Dropdown items={[{ value: 'copy', label: '复制' }, { value: 'remove', label: '删除', danger: true }]}><Button variant="outline">更多</Button></Dropdown>
         <Accordion items={[{ key: '1', title: '什么是 Xiaoli？', content: '一套樱花主题的 React + Vue 组件库。' }]} />
-        <Table caption="角色表" rowKey="id" columns={[{ key: 'name', title: '姓名' }, { key: 'city', title: '城市' }]} data={[{ id: '1', name: '小狸', city: '京都' }]} />
+        <Table
+          caption="角色表"
+          rowKey="id"
+          selectable
+          stickyHeader
+          pagination={{ page: tablePage, pageSize: 3 }}
+          columns={[
+            { key: 'name', title: '姓名', sortable: true, filterable: true },
+            { key: 'city', title: '城市', filterable: true },
+            { key: 'score', title: '分数', sortable: true },
+          ]}
+          data={tableRows}
+        />
+        <Pagination page={tablePage} total={5} pageSize={3} onPageChange={setTablePage} />
         <List items={[{ key: '1', title: '第一项', description: '描述文字' }]} />
         <Descriptions title="资料" items={[{ label: '名字', value: '小狸' }, { label: '主题', value: '樱花' }]} />
       </section>
@@ -155,8 +182,9 @@ export function Gallery() {
       <section className="demo-section">
         <h2>选择与日期</h2>
         <div className="demo-row">
-          <DatePicker defaultValue="2026-09-10" />
-          <TimePicker defaultValue="17:00" />
+          <DatePicker defaultValue="2026-09-10" clearable />
+          <DatePicker mode="range" clearable />
+          <TimePicker defaultValue="17:00" clearable showSeconds />
           <Segmented value={seg} onValueChange={setSeg} options={[{ value: 'week', label: '周' }, { value: 'month', label: '月' }]} />
           <Autocomplete options={['樱花', '星屑', '月光']} />
         </div>
@@ -169,7 +197,20 @@ export function Gallery() {
         <h2>其余组件</h2>
         <NoticeBar text="开源组件库持续建设中" closable />
         <Notification title="新消息" description="画廊已经可以交互。" />
-        <Tree data={[{ key: 'a', title: '角色', children: [{ key: 'a1', title: '小狸' }] }]} />
+        <Tree
+          defaultExpandedKeys={['cast']}
+          data={[
+            {
+              key: 'cast',
+              title: '角色',
+              children: [
+                { key: 'cast-xiaoli', title: '小狸', children: [{ key: 'cast-xiaoli-note', title: '笔记' }] },
+                { key: 'cast-sakura', title: '樱花' },
+              ],
+            },
+            { key: 'places', title: '地点', children: [{ key: 'places-kyoto', title: '京都' }] },
+          ]}
+        />
         <Cascader options={[{ value: 'jp', label: '日本', children: [{ value: 'kyoto', label: '京都' }] }]} />
         <Transfer data={[{ key: '1', title: '按钮' }, { key: '2', title: '输入框' }]} />
         <Carousel items={['第一屏', '第二屏', '第三屏']} />
@@ -177,6 +218,24 @@ export function Gallery() {
         <TabBar items={[{ value: 'home', label: '首页' }, { value: 'me', label: '我的' }]} />
         <Image src="https://picsum.photos/seed/xiaoli/240/140" alt="示例图" width={240} height={140} />
         <Watermark text="Xiaoli"><div style={{ minHeight: 80, padding: 16 }}>水印容器</div></Watermark>
+        <Affix offset={8}><Button variant="outline">吸附按钮</Button></Affix>
+        <ScrollArea height={120}>
+          <p>滚动区域第一段</p>
+          <p>滚动区域第二段</p>
+          <p>滚动区域第三段</p>
+          <p>滚动区域第四段</p>
+        </ScrollArea>
+        <PullRefresh
+          onRefresh={async () => {
+            await new Promise((resolve) => setTimeout(resolve, 400));
+            setRefreshCount((count) => count + 1);
+          }}
+        >
+          <div style={{ minHeight: 80, padding: 8 }}>已刷新 {refreshCount} 次。手机上可下拉，键盘可用刷新按钮。</div>
+        </PullRefresh>
+        <SafeArea edges={['bottom']}>
+          <div className="demo-chip">SafeArea 底部</div>
+        </SafeArea>
       </section>
     </>
   );

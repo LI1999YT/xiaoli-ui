@@ -1,22 +1,16 @@
 # 当前状态
 
-记录日期：2026-09-10。文档交付日与代码实施日重合。
+记录日期：2026-09-11。
 
 | 项目 | 当前真实状态 |
 |---|---|
-| 产品/架构/组件/发布规格 | 文档已编写；实施按 M0+M1 推进 |
-| 当前开发阶段 | M0 底座 + M1 十项试点已落地源码 |
-| 组件实现 | 10 / 72（试点项）；其余未开始 |
-| 已公开 npm 包 | 0；`@xiaoli-ui` 未注册/未核验 |
-| 实际测试/构建/消费验证 | 见本轮命令结果；未 npm publish |
+| 产品/架构/组件/发布规格 | 文档已编写；实施按 M0+M1 推进，并继续加深薄组件 |
+| 当前开发阶段 | M0 底座 + M1 试点已落地；P1/P2 有源码，规格完整度不一 |
+| 组件实现 | 72 项均有文件夹；本批加深 Table/DatePicker/TimePicker/Calendar/Tree/PullRefresh/Affix/ScrollArea/Watermark/SafeArea |
+| 已公开 npm 包 | 0；不要把源码存在写成已发布 |
+| 实际测试/构建/消费验证 | 以本轮 `pnpm test:unit` 为准；未 npm publish |
 | 兼容性与性能 | 目标已定义，未对真机测量 |
 
 ## 下一项具体工作
 
-所有者确认包名/仓库后：补 Storybook/文档站、P0 其余 16 项，或按 docs/19 走本地 pack → 预发布。不要宣布 1.0。
-
-## 本轮记录
-
-- 分支：本地未提交（按用户要求不 commit、不 push、不建 GitHub 仓库）
-- 完成：workspace、四公开包、tokens/theme、internal-core/dom、M1 双框架组件、playground、pack 脚本
-- 未运行：Playwright e2e、axe、真机、读屏、真实 registry 发布
+继续加深仍薄的 P1/P2（Picker、Carousel、VirtualList、Upload 边界、Tree cascade/懒加载），补单元测试与 playground 验收。不要宣布 1.0 或 72 项已完成。

@@ -1,3 +1,59 @@
 @layer dui.components {
-:where([data-dui='time-picker']){display:inline-flex}
+  :where([data-dui='time-picker']) {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  :where([data-dui='time-picker'] [data-part='input']) {
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid var(--dui-color-border-default);
+    border-radius: var(--dui-time-picker-radius);
+    font: inherit;
+    background: var(--dui-surface-panel);
+  }
+
+  :where([data-dui='time-picker'] [data-part='panel']) {
+    width: auto;
+  }
+
+  :where([data-dui='time-picker'] [data-part='columns']) {
+    display: flex;
+    gap: 8px;
+    height: var(--dui-time-picker-panel-height);
+  }
+
+  :where([data-dui='time-picker'] [data-part='hour']),
+  :where([data-dui='time-picker'] [data-part='minute']),
+  :where([data-dui='time-picker'] [data-part='second']),
+  :where([data-dui='time-picker'] [data-part='period']) {
+    width: var(--dui-time-picker-column-width);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--dui-color-border-default);
+    border-radius: var(--dui-radius-md);
+  }
+
+  :where([data-dui='time-picker'] [data-part='columnItem']) {
+    min-height: var(--dui-time-picker-item-height);
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  :where([data-dui='time-picker'] [data-part='columnItem'][data-active]) {
+    background: var(--dui-time-picker-active-bg);
+    color: var(--dui-color-action-bg);
+  }
+
+  :where([data-dui='time-picker'] [data-part='footer']) {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 8px;
+  }
 }

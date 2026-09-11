@@ -1,6 +1,76 @@
 @layer dui.components {
-:where([data-dui='table']){overflow:auto;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md)}
-:where([data-dui='table'] table){width:100%;border-collapse:collapse}
-:where([data-dui='table'] th),:where([data-dui='table'] td){padding:10px 12px;border-bottom:1px solid var(--dui-color-border-default);text-align:start}
-:where([data-dui='table'] th){background:var(--dui-surface-muted);color:var(--dui-color-action-bg)}
+  :where([data-dui='table']) {
+    overflow: auto;
+    border: 1px solid var(--dui-table-border-color);
+    border-radius: var(--dui-radius-md);
+    background: var(--dui-table-row-bg);
+  }
+
+  :where([data-dui='table'] [data-part='scroll']) {
+    overflow: auto;
+    max-width: 100%;
+  }
+
+  :where([data-dui='table'] [data-part='table']) {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  :where([data-dui='table'] [data-part='cell']),
+  :where([data-dui='table'] th),
+  :where([data-dui='table'] td) {
+    padding: var(--dui-table-cell-padding);
+    border-bottom: 1px solid var(--dui-table-border-color);
+    text-align: start;
+    min-height: var(--dui-table-row-height);
+  }
+
+  :where([data-dui='table'] [data-part='head'] th) {
+    background: var(--dui-table-header-bg);
+    color: var(--dui-color-text-secondary);
+    font-weight: var(--dui-font-weight-medium);
+  }
+
+  :where([data-dui='table'][data-sticky-header] [data-part='head'] th) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  :where([data-dui='table'] [data-part='row']:hover) {
+    background: var(--dui-table-row-hover-bg);
+  }
+
+  :where([data-dui='table'] [data-part='row'][data-selected]) {
+    background: var(--dui-table-row-selected-bg);
+  }
+
+  :where([data-dui='table'] [data-part='sortButton']) {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    min-height: 32px;
+  }
+
+  :where([data-dui='table'] [data-part='filter']) {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    min-height: 32px;
+    border: 1px solid var(--dui-table-border-color);
+    border-radius: var(--dui-radius-sm);
+    padding: 0 8px;
+    font: inherit;
+  }
+
+  :where([data-dui='table'] [data-part='status']) {
+    padding: 16px;
+    color: var(--dui-color-text-secondary);
+    text-align: center;
+  }
 }

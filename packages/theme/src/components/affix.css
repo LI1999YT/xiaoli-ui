@@ -1,3 +1,12 @@
 @layer dui.components {
-:where([data-dui='affix']){position:sticky;z-index:var(--dui-zIndex-sticky)}
+  :where([data-dui='affix'] [data-part='sentinel']) {
+    height: 1px;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  :where([data-dui='affix'][data-fixed] [data-part='content']) {
+    position: fixed;
+    z-index: var(--dui-affix-z-index);
+  }
 }

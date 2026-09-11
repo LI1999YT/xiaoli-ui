@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import {
   Accordion,
   ActionSheet,
+  Affix,
   Alert,
   Autocomplete,
   Avatar,
@@ -32,8 +33,11 @@ import {
   Picker,
   Popover,
   Progress,
+  PullRefresh,
   RadioGroup,
   Rate,
+  SafeArea,
+  ScrollArea,
   SearchBar,
   Segmented,
   Select,
@@ -69,6 +73,31 @@ const score = ref(4);
 const volume = ref(40);
 const tab = ref('form');
 const seg = ref('week');
+const tablePage = ref(1);
+const refreshCount = ref(0);
+const tableRows = [
+  { id: '1', name: '小狸', city: '京都', score: 92 },
+  { id: '2', name: '星屑', city: '东京', score: 88 },
+  { id: '3', name: '月光', city: '大阪', score: 95 },
+  { id: '4', name: '樱花', city: '京都', score: 81 },
+  { id: '5', name: '夜行', city: '奈良', score: 76 },
+];
+const treeData = [
+  {
+    key: 'cast',
+    title: '角色',
+    children: [
+      { key: 'cast-xiaoli', title: '小狸', children: [{ key: 'cast-xiaoli-note', title: '笔记' }] },
+      { key: 'cast-sakura', title: '樱花' },
+    ],
+  },
+  { key: 'places', title: '地点', children: [{ key: 'places-kyoto', title: '京都' }] },
+];
+
+async function onRefresh() {
+  await new Promise((resolve) => setTimeout(resolve, 400));
+  refreshCount.value += 1;
+}
 </script>
 
 <template>
@@ -150,7 +179,20 @@ const seg = ref('week');
       <Button variant="outline">更多</Button>
     </Dropdown>
     <Accordion :items="[{ key: '1', title: '什么是 Xiaoli？', content: '一套樱花主题的 React + Vue 组件库。' }]" />
-    <Table caption="角色表" row-key="id" :columns="[{ key: 'name', title: '姓名' }, { key: 'city', title: '城市' }]" :data="[{ id: '1', name: '小狸', city: '京都' }]" />
+    <Table
+      caption="角色表"
+      row-key="id"
+      selectable
+      sticky-header
+      :pagination="{ page: tablePage, pageSize: 3 }"
+      :columns="[
+        { key: 'name', title: '姓名', sortable: true, filterable: true },
+        { key: 'city', title: '城市', filterable: true },
+        { key: 'score', title: '分数', sortable: true },
+      ]"
+      :data="tableRows"
+    />
+    <Pagination v-model:page="tablePage" :total="5" :page-size="3" />
     <List :items="[{ key: '1', title: '第一项', description: '描述文字' }]" />
     <Descriptions title="资料" :items="[{ label: '名字', value: '小狸' }, { label: '主题', value: '樱花' }]" />
   </section>
@@ -158,8 +200,9 @@ const seg = ref('week');
   <section class="demo-section">
     <h2>选择与日期</h2>
     <div class="demo-row">
-      <DatePicker default-value="2026-09-10" />
-      <TimePicker default-value="17:00" />
+      <DatePicker default-value="2026-09-10" clearable />
+      <DatePicker mode="range" clearable />
+      <TimePicker default-value="17:00" clearable show-seconds />
       <Segmented v-model="seg" :options="[{ value: 'week', label: '周' }, { value: 'month', label: '月' }]" />
       <Autocomplete :options="['樱花', '星屑', '月光']" />
     </div>
@@ -172,7 +215,7 @@ const seg = ref('week');
     <h2>其余组件</h2>
     <NoticeBar text="开源组件库持续建设中" closable />
     <Notification title="新消息" description="画廊已经可以交互。" />
-    <Tree :data="[{ key: 'a', title: '角色', children: [{ key: 'a1', title: '小狸' }] }]" />
+    <Tree :data="treeData" :default-expanded-keys="['cast']" />
     <Cascader :options="[{ value: 'jp', label: '日本', children: [{ value: 'kyoto', label: '京都' }] }]" />
     <Transfer :data="[{ key: '1', title: '按钮' }, { key: '2', title: '输入框' }]" />
     <Carousel>
@@ -184,5 +227,20 @@ const seg = ref('week');
     <Watermark text="Xiaoli">
       <div style="min-height: 80px; padding: 16px">水印容器</div>
     </Watermark>
+    <Affix :offset="8">
+      <Button variant="outline">吸附按钮</Button>
+    </Affix>
+    <ScrollArea :height="120">
+      <p>滚动区域第一段</p>
+      <p>滚动区域第二段</p>
+      <p>滚动区域第三段</p>
+      <p>滚动区域第四段</p>
+    </ScrollArea>
+    <PullRefresh :refresh-handler="onRefresh">
+      <div style="min-height: 80px; padding: 8px">已刷新 {{ refreshCount }} 次。手机上可下拉，键盘可用刷新按钮。</div>
+    </PullRefresh>
+    <SafeArea :edges="['bottom']">
+      <div class="demo-chip">SafeArea 底部</div>
+    </SafeArea>
   </section>
 </template>

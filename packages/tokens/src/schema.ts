@@ -260,6 +260,65 @@ export const COMPONENT_TOKEN_DEFAULTS: Record<string, Record<string, string>> = 
   rate: {
     color: 'var(--dui-color-action-bg)',
   },
+  table: {
+    headerBg: 'var(--dui-surface-muted)',
+    rowBg: 'var(--dui-surface-panel)',
+    rowHoverBg: 'var(--dui-surface-hover)',
+    rowSelectedBg: 'var(--dui-color-action-soft)',
+    cellPadding: '10px 12px',
+    borderColor: 'var(--dui-color-border-default)',
+    rowHeight: '44px',
+  },
+  datePicker: {
+    inputHeight: 'var(--dui-control-height-md)',
+    cellSize: '36px',
+    selectedBg: 'var(--dui-color-action-bg)',
+    rangeBg: 'var(--dui-color-action-soft)',
+    todayBorder: 'var(--dui-color-action-bg)',
+    panelWidth: '280px',
+    radius: 'var(--dui-radius-lg)',
+  },
+  timePicker: {
+    columnWidth: '64px',
+    itemHeight: '36px',
+    activeBg: 'var(--dui-color-action-soft)',
+    panelHeight: '220px',
+    radius: 'var(--dui-radius-lg)',
+  },
+  calendar: {
+    cellSize: '36px',
+    selectedBg: 'var(--dui-color-action-bg)',
+    todayBorder: 'var(--dui-color-action-bg)',
+  },
+  tree: {
+    nodeHeight: '32px',
+    indent: '16px',
+    activeBg: 'var(--dui-surface-hover)',
+    selectedBg: 'var(--dui-color-action-soft)',
+    lineColor: 'var(--dui-color-border-default)',
+    expanderSize: '20px',
+  },
+  pullRefresh: {
+    indicatorHeight: '48px',
+    textColor: 'var(--dui-color-text-secondary)',
+    bg: 'var(--dui-surface-panel)',
+    thresholdDistance: '64px',
+  },
+  affix: {
+    zIndex: 'var(--dui-zIndex-sticky)',
+  },
+  scrollArea: {
+    radius: 'var(--dui-radius-md)',
+    borderColor: 'var(--dui-color-border-default)',
+  },
+  watermark: {
+    color: 'var(--dui-color-text-muted)',
+    opacity: '0.12',
+    gap: '140px',
+  },
+  safeArea: {
+    minPadding: '0px',
+  },
 };
 
 export const KNOWN_SEMANTIC_KEYS = new Set(SEMANTIC_TOKENS.map((item) => item.key));

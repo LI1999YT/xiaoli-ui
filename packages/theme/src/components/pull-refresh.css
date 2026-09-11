@@ -1,3 +1,31 @@
 @layer dui.components {
-:where([data-dui='pull-refresh']){display:flex;flex-direction:column;gap:8px}
+  :where([data-dui='pull-refresh']) {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--dui-pull-refresh-bg);
+  }
+
+  :where([data-dui='pull-refresh'] [data-part='indicator']) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--dui-pull-refresh-indicator-height);
+    color: var(--dui-pull-refresh-text-color);
+    font-size: var(--dui-font-size-sm);
+  }
+
+  :where([data-dui='pull-refresh'] [data-part='content']) {
+    touch-action: pan-y;
+  }
+
+  :where([data-dui='pull-refresh'] [data-part='refreshButton']) {
+    align-self: flex-start;
+    margin: 8px;
+    min-height: 36px;
+    border: 1px solid var(--dui-color-border-default);
+    border-radius: var(--dui-radius-md);
+    background: var(--dui-surface-panel);
+    cursor: pointer;
+  }
 }

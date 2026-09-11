@@ -1,3 +1,24 @@
 @layer dui.components {
-:where([data-dui='scroll-area']){overflow:auto;border:1px solid var(--dui-color-border-default);border-radius:12px;padding:8px}
+  :where([data-dui='scroll-area']) {
+    border: 1px solid var(--dui-scroll-area-border-color);
+    border-radius: var(--dui-scroll-area-radius);
+    background: var(--dui-surface-panel);
+  }
+
+  :where([data-dui='scroll-area'] [data-part='viewport']) {
+    overflow: auto;
+    max-width: 100%;
+    padding: 8px;
+    overscroll-behavior: contain;
+  }
+
+  :where([data-dui='scroll-area'] [data-part='viewport']::-webkit-scrollbar) {
+    width: 10px;
+    height: 10px;
+  }
+
+  :where([data-dui='scroll-area'] [data-part='viewport']::-webkit-scrollbar-thumb) {
+    background: var(--dui-color-border-strong);
+    border-radius: 999px;
+  }
 }
