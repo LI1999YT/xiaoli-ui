@@ -1,3 +1,17 @@
 @layer dui.components {
-:where([data-dui='safe-area']){padding-bottom:env(safe-area-inset-bottom);padding-top:env(safe-area-inset-top)}
+  :where([data-dui='safe-area'][data-edge-top]) {
+    padding-top: max(var(--dui-safe-area-min-padding), env(safe-area-inset-top));
+  }
+
+  :where([data-dui='safe-area'][data-edge-bottom]) {
+    padding-bottom: max(var(--dui-safe-area-min-padding), env(safe-area-inset-bottom));
+  }
+
+  :where([data-dui='safe-area'][data-edge-start]) {
+    padding-inline-start: max(var(--dui-safe-area-min-padding), env(safe-area-inset-left));
+  }
+
+  :where([data-dui='safe-area'][data-edge-end]) {
+    padding-inline-end: max(var(--dui-safe-area-min-padding), env(safe-area-inset-right));
+  }
 }

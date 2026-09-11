@@ -18,10 +18,10 @@
 | M2-01 | 其余16项P0与契约回归 | M1完成 | P0剩余components、tests | 26项范围准确，两框架同语义 | 进行中 | React/Vue 已落地真实实现；unit 33 通过；playground 待浏览器验收 |
 | M2-02 | SSR/i18n/RTL/文档门户 | M2-01 | next/nuxt、locale、apps/docs | import/render/hydrate与文档示例通过 | 待开始 | 无 |
 | M2-03 | 预发布候选检查 | M2-02 | packs、release report | 范围门禁通过；发布另需授权 | 待开始 | 无 |
-| M3-01 | 28项P1按依赖实施 | M2完成 | P1 components | 日期/上传/表格/移动边界完整 | 待开始 | 无 |
+| M3-01 | 28项P1按依赖实施 | M2完成 | P1 components | 日期/上传/表格/移动边界完整 | 进行中 | Table/DatePicker/TimePicker 已加深；其余 P1 仍待验证 |
 | M3-02 | 54项正式版综合验收 | M3-01 | 全部测试/真机/类型/体积报告 | 无发布阻断，缺项明确 | 待开始 | 无 |
 | M3-03 | 授权发布与真实registry消费 | M3-02及授权 | 发布manifest/report、文档版本 | 审核产物实际安装通过 | 待开始 | 无 |
-| M4-01 | 18项P2按RFC逐项扩展 | 对应依赖完成 | RFC、P2 components | 实验/稳定范围清晰，逐项验收 | 待开始 | 无 |
+| M4-01 | 18项P2按RFC逐项扩展 | 对应依赖完成 | RFC、P2 components | 实验/稳定范围清晰，逐项验收 | 进行中 | Tree/PullRefresh/Affix/ScrollArea/Watermark/SafeArea 已加深；其余仍薄 |
 
 ## 72 项组件进度
 
@@ -69,9 +69,9 @@
 | C38 | [Slider](../components/C38-Slider-滑块.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C39 | [Rate](../components/C39-Rate-评分.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C40 | [Upload](../components/C40-Upload-文件上传.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
-| C41 | [DatePicker](../components/C41-DatePicker-日期选择.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
-| C42 | [TimePicker](../components/C42-TimePicker-时间选择.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
-| C43 | [Table](../components/C43-Table-数据表格.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
+| C41 | [DatePicker](../components/C41-DatePicker-日期选择.md) | P1 | 已实现 | 已实现 | 已实现 | 单元通过 | playground | 未运行 | 待验证 |
+| C42 | [TimePicker](../components/C42-TimePicker-时间选择.md) | P1 | 已实现 | 已实现 | 已实现 | 单元通过 | playground | 未运行 | 待验证 |
+| C43 | [Table](../components/C43-Table-数据表格.md) | P1 | 已实现 | 已实现 | 已实现 | 单元通过 | playground | 未运行 | 待验证 |
 | C44 | [List](../components/C44-List-列表.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C45 | [Descriptions](../components/C45-Descriptions-描述列表.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C46 | [Steps](../components/C46-Steps-步骤条.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
@@ -83,7 +83,7 @@
 | C52 | [Autocomplete](../components/C52-Autocomplete-自动补全.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C53 | [Calendar](../components/C53-Calendar-日历面板.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C54 | [Notification](../components/C54-Notification-通知面板.md) | P1 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
-| C55 | [Tree](../components/C55-Tree-树形控件.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
+| C55 | [Tree](../components/C55-Tree-树形控件.md) | P2 | 已实现 | 已实现 | 已实现 | 单元通过 | playground | 未运行 | 待验证 |
 | C56 | [TreeSelect](../components/C56-TreeSelect-树选择器.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C57 | [Cascader](../components/C57-Cascader-级联选择.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C58 | [Transfer](../components/C58-Transfer-穿梭选择.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
@@ -93,7 +93,7 @@
 | C62 | [Affix](../components/C62-Affix-吸附容器.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C63 | [ScrollArea](../components/C63-ScrollArea-滚动区域.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C64 | [BackTop](../components/C64-BackTop-返回顶部.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
-| C65 | [PullRefresh](../components/C65-PullRefresh-下拉刷新.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
+| C65 | [PullRefresh](../components/C65-PullRefresh-下拉刷新.md) | P2 | 已实现 | 已实现 | 已实现 | 单元通过 | playground | 未运行 | 待验证 |
 | C66 | [InfiniteScroll](../components/C66-InfiniteScroll-无限加载.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C67 | [SwipeCell](../components/C67-SwipeCell-侧滑操作行.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
 | C68 | [NoticeBar](../components/C68-NoticeBar-公告栏.md) | P2 | 已实现 | 已实现 | 已实现 | 类型通过 | playground | 未运行 | 待验证 |
@@ -105,3 +105,9 @@
 ## 任务完成记录格式
 
 每个完成项追加：任务ID、commit、修改文件、命令/退出结果、测试报告与consumer日志、审查结果、风险/例外、实际完成日期。禁止一次批量把整表改为已完成而不附证据。测试失败后修复需重新验证，保留原问题的追踪。
+
+## 2026-09-11 加深批次（未完成验收）
+
+- 任务：C41/C42/C43/C53/C55/C62/C63/C65/C72/C50 从薄实现加深为真实交互；仍为待验证，不是已完成。
+- 仍薄：Picker 仍是 native select；Carousel/VirtualList/InfiniteScroll/SwipeCell 未在本批加深；Tree 无懒加载/cascade 半选；DatePicker 无 sheet 自适应。
+- 未运行：e2e、axe、真机、pack 消费、Storybook。

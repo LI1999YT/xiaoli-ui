@@ -1,6 +1,52 @@
 @layer dui.components {
-:where([data-dui='tree']){list-style:none;margin:0;padding:0}
-:where([data-dui='tree'] ul){padding-inline-start:16px;list-style:none}
-:where([data-dui='tree'] button){border:0;background:transparent;min-height:32px;cursor:pointer}
-:where([data-dui='tree'] button[data-active]){color:var(--dui-color-action-bg)}
+  :where([data-dui='tree']) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  :where([data-dui='tree'] [data-part='node']) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: var(--dui-tree-node-height);
+    padding-inline-start: calc(var(--dui-tree-indent) * var(--dui-tree-depth, 0));
+  }
+
+  :where([data-dui='tree'] [data-part='expander']) {
+    width: var(--dui-tree-expander-size);
+    min-height: var(--dui-tree-expander-size);
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: var(--dui-color-text-secondary);
+  }
+
+  :where([data-dui='tree'] [data-part='label']) {
+    border: 0;
+    background: transparent;
+    min-height: var(--dui-tree-node-height);
+    padding: 0 8px;
+    border-radius: var(--dui-radius-sm);
+    cursor: pointer;
+    font: inherit;
+    text-align: start;
+  }
+
+  :where([data-dui='tree'] [data-part='label'][data-selected]) {
+    background: var(--dui-tree-selected-bg);
+    color: var(--dui-color-action-bg);
+  }
+
+  :where([data-dui='tree'] [data-part='label'][data-active]) {
+    background: var(--dui-tree-active-bg);
+  }
+
+  :where([data-dui='tree'] [data-part='children']) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-inline-start: 1px solid var(--dui-tree-line-color);
+    margin-inline-start: 10px;
+  }
 }

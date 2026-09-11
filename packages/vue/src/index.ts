@@ -52,7 +52,7 @@ export { Rate } from './components/rate/index';
 export { Upload } from './components/upload/index';
 export { DatePicker } from './components/date-picker/index';
 export { TimePicker } from './components/time-picker/index';
-export { Table } from './components/table/index';
+export { Table, deriveTableRows, nextTableSort } from './components/table/index';
 export { List } from './components/list/index';
 export { Descriptions } from './components/descriptions/index';
 export { Steps } from './components/steps/index';
