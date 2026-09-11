@@ -1,0 +1,26 @@
+@layer dui.components {
+  :where([data-dui='textarea']) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-space-1);
+    width: 100%;
+  }
+  :where([data-dui='textarea'] [data-part='textarea']) {
+    appearance: none;
+    width: 100%;
+    min-height: var(--dui-textarea-min-height);
+    padding: var(--dui-textarea-padding);
+    border: var(--dui-border-width) solid var(--dui-textarea-border-color);
+    border-radius: var(--dui-textarea-radius);
+    background: var(--dui-surface-panel);
+    color: var(--dui-color-text-primary);
+    font: inherit;
+    font-size: 16px;
+    resize: vertical;
+  }
+  :where([data-dui='textarea'] [data-part='count']) {
+    align-self: flex-end;
+    color: var(--dui-textarea-count-color);
+    font-size: var(--dui-font-size-sm);
+  }
+}

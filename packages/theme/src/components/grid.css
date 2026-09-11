@@ -1,0 +1,19 @@
+@layer dui.components {
+  :where([data-dui='grid']) {
+    display: grid;
+    grid-template-columns: repeat(var(--dui-grid-columns, 12), minmax(0, 1fr));
+    gap: var(--dui-grid-gap, var(--dui-space-4));
+    min-width: 0;
+  }
+
+  :where([data-dui='grid'][data-align='start']) { align-items: start; }
+  :where([data-dui='grid'][data-align='center']) { align-items: center; }
+  :where([data-dui='grid'][data-align='end']) { align-items: end; }
+  :where([data-dui='grid'][data-align='stretch']) { align-items: stretch; }
+
+  :where([data-dui='grid-item']) {
+    min-width: 0;
+    grid-column: span var(--dui-grid-span, 1) / span var(--dui-grid-span, 1);
+    margin-inline-start: calc((100% / var(--dui-grid-columns, 12)) * var(--dui-grid-offset, 0));
+  }
+}

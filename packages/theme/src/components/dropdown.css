@@ -1,0 +1,8 @@
+@layer dui.components {
+:where([data-dui='dropdown']){position:relative;display:inline-flex}
+:where([data-dui='dropdown'] [data-part='trigger']){min-height:40px;padding:0 12px;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md);background:#fff;cursor:pointer}
+:where([data-dui='dropdown'] [data-part='menu']){position:absolute;top:calc(100% + 6px);inset-inline-start:0;z-index:var(--dui-zIndex-popover);list-style:none;margin:0;padding:6px;min-width:160px;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md);background:#fff;box-shadow:var(--dui-shadow-md)}
+:where([data-dui='dropdown'] [data-part='menu'] li){min-height:36px;display:flex;align-items:center;padding:0 10px;cursor:pointer;border-radius:8px}
+:where([data-dui='dropdown'] [data-part='menu'] li:hover){background:var(--dui-color-action-soft)}
+:where([data-dui='dropdown'] [data-danger]){color:var(--dui-color-danger-bg)}
+}

@@ -1,0 +1,38 @@
+@layer dui.components {
+  :where([data-dui='popover']) {
+    position: relative;
+    display: inline-flex;
+  }
+
+  :where([data-dui='popover'] [data-part='trigger']) {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  :where([data-dui='popover'] [data-part='content']) {
+    position: absolute;
+    z-index: var(--dui-zIndex-popover);
+    min-width: 180px;
+    padding: var(--dui-space-3);
+    border: var(--dui-border-width) solid var(--dui-color-border-default);
+    border-radius: var(--dui-radius-lg);
+    background: var(--dui-surface-panel);
+    box-shadow: var(--dui-shadow-md);
+  }
+
+  :where([data-dui='popover'][data-placement='bottom'] [data-part='content']) { top: calc(100% + 8px); inset-inline-start: 0; }
+  :where([data-dui='popover'][data-placement='top'] [data-part='content']) { bottom: calc(100% + 8px); inset-inline-start: 0; }
+  :where([data-dui='popover'][data-placement='end'] [data-part='content']) { inset-inline-start: calc(100% + 8px); top: 0; }
+  :where([data-dui='popover'][data-placement='start'] [data-part='content']) { inset-inline-end: calc(100% + 8px); top: 0; }
+
+  :where([data-dui='popover'] [data-part='title']) {
+    display: block;
+    margin-bottom: var(--dui-space-2);
+    color: var(--dui-color-action-bg);
+  }
+}

@@ -1,0 +1,2 @@
+import { defineComponent, h, ref } from 'vue';
+export const NoticeBar = defineComponent({ name: 'DuiNoticeBar', props: { text: { type: String, required: true }, closable: { type: Boolean, default: false } }, emits: { close: () => true }, setup(p, { emit }) { const show = ref(true); return () => show.value ? h('div', { 'data-dui': 'notice-bar', role: 'status' }, [h('span', p.text), p.closable ? h('button', { type: 'button', 'aria-label': '关闭', onClick: () => { show.value = false; emit('close'); } }, '×') : null]) : null; } });

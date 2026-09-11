@@ -7,6 +7,8 @@
     font-size: var(--dui-font-size-md);
     line-height: var(--dui-font-lineHeight-body);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
   }
 
   :where([data-dui-theme][data-density='compact']) {
@@ -34,7 +36,7 @@
 
   :where([data-dui-portal-host]) {
     position: relative;
-    z-index: var(--dui-z-index-modal);
+    z-index: var(--dui-zIndex-modal);
   }
 
   @media (prefers-reduced-motion: reduce) {

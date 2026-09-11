@@ -2,7 +2,7 @@
   :where([data-dui='form']) {
     display: flex;
     flex-direction: column;
-    gap: var(--dui-space-4);
+    gap: var(--dui-space-5);
     min-width: 0;
   }
 
@@ -17,6 +17,7 @@
     color: var(--dui-form-label-color);
     font-size: var(--dui-form-label-font-size);
     font-weight: var(--dui-font-weight-medium);
+    letter-spacing: 0;
   }
 
   :where([data-dui='form'] [data-part='error']) {
@@ -34,5 +35,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--dui-form-actions-gap);
+    padding-top: var(--dui-space-1);
   }
 }

@@ -1,0 +1,36 @@
+@layer dui.components {
+  :where([data-dui='badge']) {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+
+  :where([data-dui='badge'] [data-part='indicator']) {
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    transform: translate(50%, -50%);
+    min-width: 18px;
+    height: 18px;
+    padding-inline: 5px;
+    border-radius: var(--dui-radius-pill);
+    background: var(--dui-badge-bg);
+    color: var(--dui-badge-fg);
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    box-shadow: 0 0 0 2px var(--dui-surface-panel);
+  }
+
+  :where([data-dui='badge'][data-dot] [data-part='indicator']) {
+    min-width: 8px;
+    width: 8px;
+    height: 8px;
+    padding: 0;
+  }
+
+  :where([data-dui='badge'][data-status='success'] [data-part='indicator']) { background: var(--dui-color-success-bg); }
+  :where([data-dui='badge'][data-status='warning'] [data-part='indicator']) { background: var(--dui-color-warning-bg); }
+  :where([data-dui='badge'][data-status='info'] [data-part='indicator']) { background: var(--dui-color-focus); }
+  :where([data-dui='badge'][data-status='neutral'] [data-part='indicator']) { background: var(--dui-color-text-muted); }
+}

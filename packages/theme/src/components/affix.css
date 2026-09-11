@@ -1,0 +1,3 @@
+@layer dui.components {
+:where([data-dui='affix']){position:sticky;z-index:var(--dui-zIndex-sticky)}
+}

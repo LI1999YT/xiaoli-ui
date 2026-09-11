@@ -1,0 +1,6 @@
+@layer dui.components {
+:where([data-dui='tree']){list-style:none;margin:0;padding:0}
+:where([data-dui='tree'] ul){padding-inline-start:16px;list-style:none}
+:where([data-dui='tree'] button){border:0;background:transparent;min-height:32px;cursor:pointer}
+:where([data-dui='tree'] button[data-active]){color:var(--dui-color-action-bg)}
+}

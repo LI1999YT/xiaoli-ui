@@ -99,6 +99,11 @@ export const Input = forwardRef<InputHandle, InputProps>(function Input(
       className={cx(classNames?.root, className)}
       style={{ ...styles?.root, ...style }}
       {...partProps('root', classNames, styles)}
+      onPointerDown={(event) => {
+        const target = event.target as HTMLElement;
+        if (inner.current?.contains(target) || target.closest('[data-part="clearButton"]')) return;
+        inner.current?.focus();
+      }}
     >
       {prefix ? <span {...partProps('prefix', classNames, styles)}>{prefix}</span> : null}
       <input
@@ -123,12 +128,7 @@ export const Input = forwardRef<InputHandle, InputProps>(function Input(
           emit(event.currentTarget.value, { reason: 'input', originalEvent: event.nativeEvent });
         }}
         onChange={(event) => {
-          const next = event.currentTarget.value;
-          if (composing.current) {
-            if (!controlled) setUncontrolled(next);
-            return;
-          }
-          emit(next, { reason: 'input', originalEvent: event.nativeEvent });
+          emit(event.currentTarget.value, { reason: 'input', originalEvent: event.nativeEvent });
         }}
         onFocus={onFocus}
         onBlur={onBlur}

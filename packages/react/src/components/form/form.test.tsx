@@ -39,6 +39,23 @@ describe('Form', () => {
     await vi.waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1));
   });
 
+  it('表单输入与勾选可更新', async () => {
+    render(
+      <Form defaultValues={{ name: '', agreed: false }}>
+        <FormField name={['name']}>
+          {({ field }) => <Input aria-label="姓名" {...field.inputProps} />}
+        </FormField>
+        <FormField name={['agreed']}>
+          {({ field }) => <Checkbox {...field.checkboxProps}>同意</Checkbox>}
+        </FormField>
+      </Form>,
+    );
+    await userEvent.type(screen.getByLabelText('姓名'), 'Ada');
+    expect(screen.getByLabelText('姓名')).toHaveValue('Ada');
+    await userEvent.click(screen.getByLabelText('同意'));
+    expect(screen.getByLabelText('同意')).toBeChecked();
+  });
+
   it('校验失败展示错误', async () => {
     render(
       <Form defaultValues={{ name: '', agreed: false }} validators={[{ path: ['name'], validators: [required('请输入姓名')] }]}>

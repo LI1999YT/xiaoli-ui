@@ -1,0 +1,2 @@
+import { defineComponent, h, ref } from 'vue';
+export const SwipeCell = defineComponent({ name: 'DuiSwipeCell', props: { actions: { type: Array, default: () => [] } }, setup(p, { slots }) { const open = ref(false); return () => h('div', { 'data-dui': 'swipe-cell', 'data-open': open.value ? '' : undefined }, [h('div', { 'data-part': 'content', onClick: () => { open.value = !open.value; } }, slots.default?.()), h('div', { 'data-part': 'actions' }, (p.actions as any[]).map((a) => h('button', { type: 'button', onClick: a.onClick }, a.label)))]); } });

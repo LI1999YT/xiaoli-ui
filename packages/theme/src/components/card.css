@@ -11,11 +11,12 @@
 
   :where([data-dui='card']:not([data-unstyled])[data-variant='outlined']) {
     border: var(--dui-border-width) solid var(--dui-card-border-color);
+    box-shadow: var(--dui-card-shadow);
   }
 
   :where([data-dui='card']:not([data-unstyled])[data-variant='elevated']) {
-    box-shadow: var(--dui-card-shadow);
-    border: var(--dui-border-width) solid transparent;
+    box-shadow: var(--dui-shadow-md);
+    border: var(--dui-border-width) solid color-mix(in srgb, var(--dui-card-border-color) 70%, transparent);
   }
 
   :where([data-dui='card']:not([data-unstyled])[data-variant='plain']) {
@@ -28,17 +29,27 @@
 
   :where([data-dui='card'] [data-part='header']) {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: var(--dui-card-header-gap);
-    margin-bottom: var(--dui-space-3);
+    padding-bottom: var(--dui-space-4);
+    margin-bottom: var(--dui-space-4);
+    border-bottom: var(--dui-border-width) solid var(--dui-color-border-default);
   }
 
   :where([data-dui='card'] [data-part='title']) {
     margin: 0;
-    font-size: var(--dui-font-size-headingSm);
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: var(--dui-font-size-lg);
+    font-weight: var(--dui-font-weight-medium);
+    letter-spacing: 0;
     line-height: var(--dui-font-lineHeight-heading);
-    overflow-wrap: anywhere;
+  }
+
+  :where([data-dui='card'] [data-part='extra']) {
+    flex: 0 0 auto;
   }
 
   :where([data-dui='card'] [data-part='cover']) {

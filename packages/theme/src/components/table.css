@@ -1,0 +1,6 @@
+@layer dui.components {
+:where([data-dui='table']){overflow:auto;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md)}
+:where([data-dui='table'] table){width:100%;border-collapse:collapse}
+:where([data-dui='table'] th),:where([data-dui='table'] td){padding:10px 12px;border-bottom:1px solid var(--dui-color-border-default);text-align:start}
+:where([data-dui='table'] th){background:var(--dui-surface-muted);color:var(--dui-color-action-bg)}
+}

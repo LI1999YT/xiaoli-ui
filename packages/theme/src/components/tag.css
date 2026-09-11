@@ -1,0 +1,7 @@
+@layer dui.components {
+:where([data-dui='tag']){display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:0 10px;border-radius:var(--dui-radius-pill);background:var(--dui-color-action-soft);color:var(--dui-color-action-bg);font-size:13px}
+:where([data-dui='tag'][data-variant='solid']){background:var(--dui-color-action-bg);color:#fff}
+:where([data-dui='tag'][data-variant='outline']){background:transparent;border:1px solid var(--dui-color-border-strong)}
+:where([data-dui='tag'][data-checked]){box-shadow:0 0 0 2px var(--dui-color-action-bg)}
+:where([data-dui='tag'] [data-part='close']){border:0;background:transparent;cursor:pointer;color:inherit}
+}

@@ -1,25 +1,164 @@
 html,
 body,
-#root {
+#root,
+#app {
   margin: 0;
   min-height: 100%;
 }
 
 body {
-  background: #e5e7eb;
+  background:
+    radial-gradient(900px 420px at 8% -10%, rgb(255 122 198 / 0.35), transparent 55%),
+    radial-gradient(720px 380px at 100% 0%, rgb(122 215 255 / 0.28), transparent 50%),
+    radial-gradient(680px 360px at 50% 110%, rgb(183 148 255 / 0.22), transparent 45%),
+    #fff3f8;
+  color: #2b1b33;
+  font-family: "Xiaoli Anime", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
-.demo-page {
+body::before,
+body::after {
+  content: "✦";
+  position: fixed;
+  z-index: 0;
+  color: #ff7ac6;
+  pointer-events: none;
+  animation: demo-twinkle 2.4s ease-in-out infinite;
+}
+
+body::before {
+  top: 72px;
+  left: 8%;
+  font-size: 22px;
+}
+
+body::after {
+  top: 140px;
+  right: 10%;
+  font-size: 16px;
+  animation-delay: 0.8s;
+}
+
+.demo-shell {
+  position: relative;
+  z-index: 1;
   box-sizing: border-box;
-  padding: 24px;
-  max-width: 1040px;
+  max-width: 1120px;
   margin: 0 auto;
+  padding: 24px 20px 64px;
 }
 
-.demo-page h1 {
-  margin: 0 0 8px;
+.demo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
 }
 
-.demo-page p {
-  margin: 0 0 20px;
+.demo-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.demo-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff7ac6, #7ad7ff);
+  color: #fff;
+  font-size: 20px;
+  box-shadow: 0 6px 0 #d63384;
+  animation: demo-bob 2.2s ease-in-out infinite;
+}
+
+.demo-brand strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.demo-brand small {
+  display: block;
+  margin-top: 2px;
+  color: #8a6a82;
+  font-size: 13px;
+}
+
+.demo-chip {
+  padding: 8px 12px;
+  border: 2px solid #ffd0e4;
+  border-radius: 999px;
+  background: #fff;
+  color: #ff4d8d;
+  font-size: 13px;
+  box-shadow: 0 3px 0 #ffd0e4;
+}
+
+.demo-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #ffd0e4;
+  border-radius: 20px;
+  background: rgb(255 255 255 / 0.86);
+  box-shadow: 0 8px 0 rgb(255 208 228 / 0.7);
+}
+
+.demo-section h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ff4d8d;
+}
+
+.demo-section p {
+  margin: 0 0 16px;
+  color: #6b4b63;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.demo-grid [data-dui='card'] {
+  height: 100%;
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+@keyframes demo-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes demo-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(18deg);
+  }
 }

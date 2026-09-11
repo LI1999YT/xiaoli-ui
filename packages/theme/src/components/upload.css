@@ -1,0 +1,4 @@
+@layer dui.components {
+:where([data-dui='upload'] [data-part='trigger']){display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px dashed var(--dui-color-border-strong);border-radius:var(--dui-radius-md);cursor:pointer;background:var(--dui-color-action-soft);color:var(--dui-color-action-bg)}
+:where([data-dui='upload'] [data-part='list']){margin:8px 0 0;padding:0;list-style:none;color:var(--dui-color-text-secondary)}
+}

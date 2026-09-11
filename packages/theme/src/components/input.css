@@ -1,40 +1,82 @@
 @layer dui.components {
   :where([data-dui='input']) {
-    display: inline-flex;
+    position: relative;
+    display: flex;
     align-items: center;
     box-sizing: border-box;
     width: 100%;
     min-height: max(var(--dui-input-height), 44px);
+    cursor: text;
     border: var(--dui-border-width) solid var(--dui-input-border-color);
     border-radius: var(--dui-input-radius);
     background: var(--dui-input-bg);
     color: var(--dui-input-text-color);
     padding-inline: var(--dui-input-padding-inline);
     gap: var(--dui-space-2);
+    font-family: var(--dui-font-family);
+    transition:
+      border-color var(--dui-motion-duration-fast) var(--dui-motion-easing-standard),
+      background-color var(--dui-motion-duration-fast) var(--dui-motion-easing-standard),
+      box-shadow var(--dui-motion-duration-fast) var(--dui-motion-easing-standard);
   }
 
   :where([data-dui='input'][data-size='sm']) { --dui-input-height: var(--dui-control-height-sm); }
   :where([data-dui='input'][data-size='lg']) { --dui-input-height: var(--dui-control-height-lg); }
 
-  :where([data-dui='input'][data-part='input']) {
+  :where([data-dui='input']:not([data-unstyled]):hover:not([data-disabled])) {
+    border-color: color-mix(in srgb, var(--dui-color-border-strong) 70%, var(--dui-input-border-color));
+  }
+
+  :where([data-dui='input'] [data-part='input']) {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    z-index: 1;
+    display: block;
     flex: 1 1 auto;
+    width: 100%;
     min-width: 0;
+    height: 42px;
+    margin: 0;
+    padding: 0;
     border: 0;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
     background: transparent;
-    color: inherit;
+    color: var(--dui-input-text-color);
+    caret-color: var(--dui-input-text-color);
     font: inherit;
     font-size: 16px;
-    outline: none;
-    width: 100%;
+    line-height: 42px;
+    cursor: text;
+    user-select: text;
+    -webkit-user-select: text;
+    pointer-events: auto;
+  }
+
+  :where([data-dui='input'] [data-part='input']::placeholder) {
+    color: var(--dui-color-text-muted);
+    opacity: 1;
+  }
+
+  :where([data-dui='input'] [data-part='input']:-webkit-autofill),
+  :where([data-dui='input'] [data-part='input']:-webkit-autofill:hover),
+  :where([data-dui='input'] [data-part='input']:-webkit-autofill:focus) {
+    -webkit-text-fill-color: var(--dui-input-text-color);
+    box-shadow: 0 0 0 1000px var(--dui-input-bg) inset;
+    transition: background-color 99999s ease-out;
   }
 
   :where([data-dui='input'][data-invalid]:not([data-unstyled])) {
     border-color: var(--dui-color-danger-bg);
+    background: var(--dui-color-danger-soft);
   }
 
   :where([data-dui='input']:focus-within:not([data-unstyled])) {
     border-color: var(--dui-input-focus-ring);
-    box-shadow: 0 0 0 var(--dui-focus-width) color-mix(in srgb, var(--dui-input-focus-ring) 25%, transparent);
+    background: var(--dui-surface-panel);
+    box-shadow: 0 0 0 var(--dui-focus-width) color-mix(in srgb, var(--dui-input-focus-ring) 22%, transparent);
   }
 
   :where([data-dui='input'][data-disabled]) {
@@ -43,11 +85,17 @@
   }
 
   :where([data-dui='input'] [data-part='clearButton']) {
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 36px;
+    min-height: 36px;
     border: 0;
+    border-radius: var(--dui-radius-sm);
     background: transparent;
     color: var(--dui-color-text-muted);
     cursor: pointer;
+  }
+
+  :where([data-dui='input'] [data-part='clearButton']:hover) {
+    color: var(--dui-color-text-primary);
+    background: var(--dui-surface-hover);
   }
 }

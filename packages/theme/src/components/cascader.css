@@ -1,0 +1,4 @@
+@layer dui.components {
+:where([data-dui='cascader']){display:flex;gap:8px}
+:where([data-dui='cascader'] select){min-height:44px;border-radius:var(--dui-radius-md);border:1px solid var(--dui-color-border-default);font:inherit}
+}

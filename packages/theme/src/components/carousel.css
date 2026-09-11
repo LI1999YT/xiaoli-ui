@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='carousel']){display:flex;align-items:center;gap:8px}
+:where([data-dui='carousel'] [data-part='viewport']){flex:1;min-height:120px;border-radius:16px;background:var(--dui-color-action-soft);display:grid;place-items:center}
+:where([data-dui='carousel'] button){width:36px;height:36px;border:0;border-radius:50%;background:var(--dui-color-action-bg);color:#fff;cursor:pointer}
+}

@@ -1,0 +1,6 @@
+@layer dui.components {
+:where([data-dui='calendar'] [data-part='grid']){display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+:where([data-dui='calendar'] button){min-height:36px;border:0;border-radius:10px;background:transparent;cursor:pointer}
+:where([data-dui='calendar'] button[data-selected]){background:var(--dui-color-action-bg);color:#fff}
+:where([data-dui='calendar'] [data-part='weekday']){text-align:center;color:var(--dui-color-text-muted);font-size:12px}
+}

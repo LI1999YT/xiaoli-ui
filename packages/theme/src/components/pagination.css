@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='pagination']){display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+:where([data-dui='pagination'] button){min-width:36px;min-height:36px;border:1px solid var(--dui-color-border-default);border-radius:var(--dui-radius-md);background:#fff;cursor:pointer}
+:where([data-dui='pagination'] button[data-active]){background:var(--dui-color-action-bg);color:#fff;border-color:transparent}
+}

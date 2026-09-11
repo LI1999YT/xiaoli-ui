@@ -65,6 +65,11 @@ export const Input = defineComponent({
         'data-unstyled': presence(props.unstyled ?? config?.unstyled ?? false),
         class: cx(attrs.class as string | undefined),
         style: attrs.style as object,
+        onPointerdown: (event: PointerEvent) => {
+          const target = event.target as HTMLElement;
+          if (inner.value?.contains(target) || target.closest('[data-part="clearButton"]')) return;
+          inner.value?.focus();
+        },
       }, [
         slots.prefix ? h('span', { 'data-part': 'prefix' }, slots.prefix()) : null,
         h('input', {
@@ -86,12 +91,7 @@ export const Input = defineComponent({
             emitValue((event.target as HTMLInputElement).value, { reason: 'input', originalEvent: event });
           },
           onInput: (event: Event) => {
-            const next = (event.target as HTMLInputElement).value;
-            if (composing.value) {
-              if (!isControlled(props.modelValue)) uncontrolled.value = next;
-              return;
-            }
-            emitValue(next, { reason: 'input', originalEvent: event });
+            emitValue((event.target as HTMLInputElement).value, { reason: 'input', originalEvent: event });
           },
           onFocus: (event: FocusEvent) => emit('focus', event),
           onBlur: (event: FocusEvent) => emit('blur', event),

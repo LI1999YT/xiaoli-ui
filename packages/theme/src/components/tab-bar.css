@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='tab-bar']){display:flex;border-top:1px solid var(--dui-color-border-default);background:#fff}
+:where([data-dui='tab-bar'] button){flex:1;min-height:52px;border:0;background:transparent;cursor:pointer}
+:where([data-dui='tab-bar'] button[data-active]){color:var(--dui-color-action-bg)}
+}

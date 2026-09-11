@@ -1,0 +1,3 @@
+@layer dui.components {
+:where([data-dui='virtual-list']){border:1px solid var(--dui-color-border-default);border-radius:12px}
+}

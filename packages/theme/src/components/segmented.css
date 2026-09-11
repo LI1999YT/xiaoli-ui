@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='segmented']){display:inline-flex;padding:4px;border-radius:var(--dui-radius-pill);background:var(--dui-surface-muted)}
+:where([data-dui='segmented'] button){min-height:36px;padding:0 14px;border:0;border-radius:var(--dui-radius-pill);background:transparent;cursor:pointer}
+:where([data-dui='segmented'] button[data-active]){background:#fff;color:var(--dui-color-action-bg);box-shadow:var(--dui-shadow-sm)}
+}

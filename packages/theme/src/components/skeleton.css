@@ -1,0 +1,43 @@
+@layer dui.components {
+  :where([data-dui='skeleton']) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dui-space-2);
+    width: 100%;
+  }
+
+  :where([data-dui='skeleton'][data-shape='rect']) {
+    min-height: 80px;
+    border-radius: var(--dui-radius-md);
+    background: var(--dui-surface-muted);
+  }
+
+  :where([data-dui='skeleton'][data-shape='circle']) {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--dui-radius-pill);
+    background: var(--dui-surface-muted);
+  }
+
+  :where([data-dui='skeleton'] [data-part='row']) {
+    display: block;
+    height: 12px;
+    border-radius: var(--dui-radius-pill);
+    background: var(--dui-surface-muted);
+  }
+
+  :where([data-dui='skeleton'] [data-part='row']:last-child) { width: 64%; }
+
+  :where([data-dui='skeleton'][data-animated] [data-part='row']),
+  :where([data-dui='skeleton'][data-animated][data-shape='rect']),
+  :where([data-dui='skeleton'][data-animated][data-shape='circle']) {
+    background: linear-gradient(90deg, var(--dui-surface-muted), #ffe3ef, var(--dui-surface-muted));
+    background-size: 200% 100%;
+    animation: dui-skeleton 1.2s ease-in-out infinite;
+  }
+
+  @keyframes dui-skeleton {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+  }
+}

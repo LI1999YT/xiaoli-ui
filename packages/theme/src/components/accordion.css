@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='accordion'] [data-part='item']){border-bottom:1px solid var(--dui-color-border-default)}
+:where([data-dui='accordion'] [data-part='trigger']){width:100%;min-height:44px;text-align:start;border:0;background:transparent;font:inherit;cursor:pointer}
+:where([data-dui='accordion'] [data-part='panel']){padding:0 0 12px}
+}

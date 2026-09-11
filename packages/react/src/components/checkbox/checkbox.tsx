@@ -104,6 +104,7 @@ export const Checkbox = forwardRef<CheckboxHandle, CheckboxProps>(function Check
         required={required}
         value={value === undefined ? undefined : String(value)}
         aria-checked={indeterminate ? 'mixed' : current}
+        className="dui-visually-hidden"
         {...partProps('input', classNames, styles)}
         onChange={(event) => {
           const next = getNextChecked(current, indeterminate);
@@ -113,7 +114,9 @@ export const Checkbox = forwardRef<CheckboxHandle, CheckboxProps>(function Check
         }}
       />
       <span {...partProps('control', classNames, styles)} aria-hidden="true">
-        <span {...partProps('indicator', classNames, styles)}>{indeterminate ? '–' : current ? '✓' : ''}</span>
+        <span {...partProps('indicator', classNames, styles)}>
+          {indeterminate ? <span data-part="dash" /> : current ? <span data-part="check" /> : null}
+        </span>
       </span>
       {children ? <span {...partProps('label', classNames, styles)}>{children}</span> : null}
     </label>

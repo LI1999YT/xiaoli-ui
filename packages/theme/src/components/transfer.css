@@ -1,0 +1,5 @@
+@layer dui.components {
+:where([data-dui='transfer']){display:grid;grid-template-columns:1fr 1fr;gap:12px}
+:where([data-dui='transfer'] ul){min-height:160px;margin:0;padding:8px;list-style:none;border:1px solid var(--dui-color-border-default);border-radius:12px}
+:where([data-dui='transfer'] button){border:0;background:transparent;cursor:pointer;min-height:32px}
+}

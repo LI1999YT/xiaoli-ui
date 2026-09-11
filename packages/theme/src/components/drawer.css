@@ -1,0 +1,71 @@
+@layer dui.components {
+  :where([data-dui='drawer']) {
+    position: fixed;
+    inset: 0;
+    z-index: var(--dui-zIndex-modal);
+  }
+
+  :where([data-dui='drawer'] [data-part='backdrop']) {
+    position: absolute;
+    inset: 0;
+    background: var(--dui-surface-overlay);
+  }
+
+  :where([data-dui='drawer'] [data-part='content']) {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: var(--dui-drawer-bg);
+    box-shadow: var(--dui-shadow-md);
+    outline: none;
+  }
+
+  :where([data-dui='drawer'][data-placement='end'] [data-part='content']),
+  :where([data-dui='drawer'][data-placement='start'] [data-part='content']) {
+    top: 0;
+    bottom: 0;
+    width: var(--dui-drawer-width);
+  }
+
+  :where([data-dui='drawer'][data-placement='end'] [data-part='content']) { inset-inline-end: 0; }
+  :where([data-dui='drawer'][data-placement='start'] [data-part='content']) { inset-inline-start: 0; }
+
+  :where([data-dui='drawer'][data-placement='top'] [data-part='content']),
+  :where([data-dui='drawer'][data-placement='bottom'] [data-part='content']) {
+    inset-inline: 0;
+    min-height: 200px;
+    max-height: 80vh;
+  }
+
+  :where([data-dui='drawer'][data-placement='top'] [data-part='content']) { top: 0; }
+  :where([data-dui='drawer'][data-placement='bottom'] [data-part='content']) { bottom: 0; }
+
+  :where([data-dui='drawer'] [data-part='header']) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--dui-space-4);
+    border-bottom: var(--dui-border-width) solid var(--dui-color-border-default);
+  }
+
+  :where([data-dui='drawer'] [data-part='title']) {
+    margin: 0;
+    font-size: var(--dui-font-size-lg);
+    color: var(--dui-color-action-bg);
+  }
+
+  :where([data-dui='drawer'] [data-part='body']) {
+    padding: var(--dui-space-4);
+    overflow: auto;
+  }
+
+  :where([data-dui='drawer'] [data-part='closeButton']) {
+    min-width: 36px;
+    min-height: 36px;
+    border: 0;
+    border-radius: var(--dui-radius-pill);
+    background: var(--dui-color-action-soft);
+    color: var(--dui-color-action-bg);
+    cursor: pointer;
+  }
+}

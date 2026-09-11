@@ -67,6 +67,7 @@ export const Checkbox = defineComponent({
           value: props.value === undefined ? undefined : String(props.value),
           'aria-checked': props.indeterminate ? 'mixed' : current,
           'data-part': 'input',
+          class: 'dui-visually-hidden',
           onChange: (event: Event) => {
             const next = getNextChecked(current, props.indeterminate);
             if (!isControlled(props.modelValue) && !group) uncontrolled.value = next;
@@ -75,7 +76,9 @@ export const Checkbox = defineComponent({
           },
         }),
         h('span', { 'data-part': 'control', 'aria-hidden': 'true' }, [
-          h('span', { 'data-part': 'indicator' }, props.indeterminate ? '–' : current ? '✓' : ''),
+          h('span', { 'data-part': 'indicator' }, [
+            props.indeterminate ? h('span', { 'data-part': 'dash' }) : current ? h('span', { 'data-part': 'check' }) : null,
+          ]),
         ]),
         slots.default ? h('span', { 'data-part': 'label' }, slots.default()) : null,
       ]);

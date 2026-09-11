@@ -1,0 +1,50 @@
+@layer dui.components {
+  :where([data-dui='divider']) {
+    display: flex;
+    align-items: center;
+    gap: var(--dui-space-3);
+    color: var(--dui-color-text-muted);
+    font-size: var(--dui-font-size-sm);
+  }
+
+  :where([data-dui='divider'][data-orientation='horizontal']) {
+    width: 100%;
+    margin-block: var(--dui-space-3);
+  }
+
+  :where([data-dui='divider'][data-orientation='horizontal'])::before,
+  :where([data-dui='divider'][data-orientation='horizontal'])::after {
+    content: '';
+    flex: 1 1 auto;
+    height: 0;
+    border-block-start: var(--dui-border-width) solid var(--dui-color-border-default);
+  }
+
+  :where([data-dui='divider'][data-orientation='horizontal'][data-variant='dashed'])::before,
+  :where([data-dui='divider'][data-orientation='horizontal'][data-variant='dashed'])::after {
+    border-block-start-style: dashed;
+  }
+
+  :where([data-dui='divider'][data-orientation='horizontal']:not(:has([data-part='label'])))::after {
+    display: none;
+  }
+
+  :where([data-dui='divider'][data-label-position='start'])::before { flex: 0 0 24px; }
+  :where([data-dui='divider'][data-label-position='end'])::after { flex: 0 0 24px; }
+
+  :where([data-dui='divider'][data-orientation='vertical']) {
+    display: inline-flex;
+    flex-direction: column;
+    align-self: stretch;
+    width: auto;
+    min-height: 1em;
+    margin-inline: var(--dui-space-3);
+  }
+
+  :where([data-dui='divider'][data-orientation='vertical'])::before {
+    content: '';
+    flex: 1 1 auto;
+    width: 0;
+    border-inline-start: var(--dui-border-width) solid var(--dui-color-border-default);
+  }
+}

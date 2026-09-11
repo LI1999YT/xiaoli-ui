@@ -1,0 +1,3 @@
+@layer dui.components {
+:where([data-dui='safe-area']){padding-bottom:env(safe-area-inset-bottom);padding-top:env(safe-area-inset-top)}
+}

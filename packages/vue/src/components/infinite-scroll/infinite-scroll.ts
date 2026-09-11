@@ -1,0 +1,2 @@
+import { defineComponent, h } from 'vue';
+export const InfiniteScroll = defineComponent({ name: 'DuiInfiniteScroll', props: { hasMore: { type: Boolean, default: true } }, emits: { loadMore: () => true }, setup(p, { emit, slots }) { return () => h('div', { 'data-dui': 'infinite-scroll' }, [slots.default?.(), p.hasMore ? h('button', { type: 'button', onClick: () => emit('loadMore') }, '加载更多') : h('span', '没有更多了')]); } });

@@ -18,13 +18,10 @@ import {
   required,
   useToast,
 } from '@xiaoli-ui/react';
+import { Gallery } from './Gallery';
 
 const lightTheme = defineTheme({ id: 'demo-light', mode: 'light' });
-const darkTheme = defineTheme({
-  id: 'demo-dark',
-  mode: 'dark',
-  tokens: { 'color.action.bg': '#38bdf8' },
-});
+const darkTheme = defineTheme({ id: 'demo-dark', mode: 'dark' });
 
 interface Values {
   name: string;
@@ -34,12 +31,10 @@ interface Values {
 function SignupForm({
   title,
   switchable,
-  mode,
   onToggleMode,
 }: {
   title: string;
   switchable?: boolean;
-  mode: 'light' | 'dark';
   onToggleMode: () => void;
 }) {
   const toast = useToast();
@@ -50,10 +45,12 @@ function SignupForm({
     <>
       <ToastViewport />
       <Card
+        variant="outlined"
+        padding={5}
         title={title}
         extra={
           switchable ? (
-            <Button variant="ghost" size="sm" onClick={onToggleMode}>
+            <Button variant="outline" onClick={onToggleMode}>
               切换主题
             </Button>
           ) : null
@@ -75,7 +72,7 @@ function SignupForm({
               <>
                 <FormLabel>姓名</FormLabel>
                 <FormControl>
-                  <Input aria-label="姓名" clearable {...field.inputProps} />
+                  <Input aria-label="姓名" clearable {...field.inputProps} placeholder="请输入姓名" />
                 </FormControl>
                 <FormError />
               </>
@@ -91,7 +88,7 @@ function SignupForm({
           </FormField>
           <FormActions>
             <Button htmlType="submit">提交</Button>
-            <Button htmlType="reset" variant="ghost" color="neutral">
+            <Button htmlType="reset" variant="outline" color="neutral">
               重置
             </Button>
           </FormActions>
@@ -130,7 +127,6 @@ function SignupPanel({ title, switchable, startDark }: { title: string; switchab
       <SignupForm
         title={title}
         switchable={switchable}
-        mode={mode}
         onToggleMode={() => setMode(mode === 'light' ? 'dark' : 'light')}
       />
     </ConfigProvider>
@@ -139,13 +135,44 @@ function SignupPanel({ title, switchable, startDark }: { title: string; switchab
 
 export function App() {
   return (
-    <div className="demo-page">
-      <h1>Xiaoli UI · React 试点</h1>
-      <p>输入姓名并勾选 → 校验 → 确认对话框 → Toast。两侧主题互相隔离，打开弹层后仍可换肤。</p>
-      <Flex gap={6} direction={{ base: 'column', lg: 'row' }} align="stretch">
-        <SignupPanel title="浅色主题" />
-        <SignupPanel title="可切换主题" switchable startDark />
-      </Flex>
+    <div className="demo-shell">
+      <header className="demo-top">
+        <div className="demo-brand">
+          <span className="demo-mark">小</span>
+          <div>
+            <strong>Xiaoli UI</strong>
+            <small>React + Vue 开源组件库</small>
+          </div>
+        </div>
+        <span className="demo-chip">React 试点</span>
+      </header>
+
+      <ConfigProvider theme={lightTheme}>
+        <section className="demo-section">
+          <h2>按钮</h2>
+          <div className="demo-row">
+            <Button>主要按钮</Button>
+            <Button variant="outline">次要按钮</Button>
+            <Button variant="soft">轻量按钮</Button>
+            <Button variant="ghost">幽灵按钮</Button>
+            <Button color="danger">危险按钮</Button>
+          </div>
+        </section>
+        <section className="demo-section">
+          <h2>输入框</h2>
+          <Input aria-label="示例输入" placeholder="请输入内容" defaultValue="" />
+        </section>
+        <Gallery />
+      </ConfigProvider>
+
+      <section className="demo-section">
+        <h2>表单场景</h2>
+        <p>输入姓名并勾选后提交：校验 → 确认对话框 → Toast。左右主题互相隔离。</p>
+        <div className="demo-grid">
+          <SignupPanel title="浅色主题" />
+          <SignupPanel title="深色主题" switchable startDark />
+        </div>
+      </section>
     </div>
   );
 }
